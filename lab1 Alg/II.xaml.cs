@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,15 @@ namespace lab1_Alg
         public II()
         {
             InitializeComponent();
+            Plot plot = new Plot();
+            List<int> dataX = new List<int>();
+            List<int> dataY = new List<int>();
+            Graph2.Plot.Add.Scatter(dataX, dataY);
+        }
+
+        private void ClearPlot(object sender, RoutedEventArgs e)
+        {
+            Graph2.Plot.Clear();
         }
     }
 }

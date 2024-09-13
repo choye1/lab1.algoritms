@@ -23,15 +23,19 @@ namespace lab1_Alg
         public I()
         {
             InitializeComponent();
-            Plot plot = new Plot();
             List<int> dataX = new List<int>();
             List<int> dataY = new List<int>();
-            plot.Add.Scatter(dataX, dataY);
+            Graph.Plot.Add.Scatter(dataX, dataY);
             
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void ClearPlot(object sender, RoutedEventArgs e)
+        {
+            Graph.Plot.Clear();
 
         }
     }
