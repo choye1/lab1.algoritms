@@ -20,6 +20,19 @@ namespace lab1_Alg
             InitializeComponent();
         }
 
+        private void I_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void II_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void III_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

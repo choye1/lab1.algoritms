@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="I" Margin="262,117,262,267" Click="I_Click"/>
+        <Button Content="II" Margin="262,195,262,189" Click="II_Click"/>
+        <Button Content="III" Margin="262,273,262,111" Click="III_Click"/>
 
     </Grid>
 </Window>
