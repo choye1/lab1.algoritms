@@ -22,17 +22,20 @@ namespace lab1_Alg
 
         private void I_Click(object sender, RoutedEventArgs e)
         {
-
+            I window = new I();
+            window.Show();
         }
 
         private void II_Click(object sender, RoutedEventArgs e)
         {
-            
+            II window = new II();
+            window.Show();
         }
 
         private void III_Click(object sender, RoutedEventArgs e)
         {
-
+            III window = new III();
+            window.Show();
         }
     }
 }
