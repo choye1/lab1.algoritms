@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         xmlns:local="clr-namespace:lab1_Alg"
         mc:Ignorable="d"
         Title="I" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="63" Margin="400,154,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click"/>
+        <ScottPlot:WpfPlot x:Name="plot" Margin="0,0,483,217" />
     </Grid>
 </Window>
