@@ -9,16 +9,34 @@ namespace AlgLogic
     }
     public class Test
     {
+        public AlgorithmItnerface Instance { set; get; }
         int rangeOfRandomNumbers{ set; get; }
         int vectorLength { set; get; }
         int numberOfStarts { set; get; }
         float[] vector {  set; get; }
-        public Test(int rangeOfRandomNumbers, int vectorLength, int numberOfStarts)
+        public Test(AlgorithmItnerface Instance, int rangeOfRandomNumbers, int vectorLength, int numberOfStarts)
         {
+            this.Instance = Instance;
             this.rangeOfRandomNumbers = rangeOfRandomNumbers;
             this.vectorLength = vectorLength;
             this.numberOfStarts = numberOfStarts;
             vector = new Vector(vectorLength, rangeOfRandomNumbers).GenerateRandomVector(); 
+        }
+        public float[] StartAlgorithm()
+        {
+            List<float> points = new List<float> ();
+            float algorithmExecutionTime;
+            for (int i = 0; i < numberOfStarts; i++)
+            {
+                for (int j = 0; j < vectorLength; j++)
+                {
+                    Timer timer = new Timer(Instance, vector);
+                    algorithmExecutionTime = timer.CalculateTime();
+                    points.Add(algorithmExecutionTime);
+                }
+                points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
+            }
+            return points.ToArray();
         }
 
     }
@@ -75,14 +93,14 @@ namespace AlgLogic
 
     public class Timer
     {
-        List<Point> points = new List<Point>();
-        float timeOFAlg { set; get; }
-        int currentNumberOfIterations { set; get; }
-        public Timer(int currentNumberOfIterations)
+        float[] vector { set; get; }
+        public AlgorithmItnerface Instance { set; get; }
+        public Timer(AlgorithmItnerface Instance, float[] vector) 
         {
-            this.currentNumberOfIterations = currentNumberOfIterations;
+            this.Instance = Instance;
+
         }
-        float CalculateTime()
+        public float CalculateTime()
         {
             Stopwatch stopwatch = new Stopwatch();
 
@@ -90,7 +108,7 @@ namespace AlgLogic
             stopwatch.Start();
 
             // Выполняем какую-то работу
-            
+            Instance.ExecuteAlgorithm(vector);
 
             // Останавливаем измерение времени
             stopwatch.Stop();
