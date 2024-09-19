@@ -132,4 +132,96 @@ namespace AlgLogic
             return 1;
         }
     }
+
+    public class Algorithm2 : AlgorithmItnerface
+    {
+        float[] vector { set; get; }
+        public Algorithm2(float[] vector)
+        {
+            this.vector = vector;
+        }
+
+        public int ExecuteAlgorithm(float[] vector)
+        {
+            int sum = 0;
+            foreach (int v in vector)
+            {
+                sum += v;
+            }
+            return sum;
+        }
+    }
+
+    public class Algorithm3 : AlgorithmItnerface
+    {
+        float[] vector { set; get; }
+        public Algorithm3(float[] vector)
+        {
+            this.vector = vector;
+        }
+
+        public int ExecuteAlgorithm(float[] vector)
+        {
+            int mul = 0;
+            foreach (int v in vector)
+            {
+                mul *= v;
+            }
+            return mul;
+        }
+    }
+
+    public class AlgorithmBuble : AlgorithmItnerface
+    {
+        float[] vector { set; get; }
+        public AlgorithmBuble(float[] vector)
+        {
+            this.vector = vector;
+        }
+
+        public int ExecuteAlgorithm(float[] vector)
+        {
+            float temp = 0;
+            for (int i = 0; i < vector.Length; i++)
+            {
+                for (int j = i + 1; j < vector.Length; j++)
+                {
+                    if (vector[i] > vector[j])
+                    {
+                        temp = vector[i];
+                        vector[i] = vector[j];
+                        vector[j] = temp;
+                    }
+                }
+            }
+            return 0;
+        }
+    }
+    public class AlgorithmQuick : AlgorithmItnerface
+    {
+        float[] vector { set; get; }
+        public AlgorithmQuick(float[] vector)
+        {
+            this.vector = vector;
+        }
+
+        public int ExecuteAlgorithm(float[] vector)
+        {
+            float temp = 0;
+            for (int i = 0; i < vector.Length; i++)
+            {
+                for (int j = i + 1; j < vector.Length; j++)
+                {
+                    if (vector[i] > vector[j])
+                    {
+                        temp = vector[i];
+                        vector[i] = vector[j];
+                        vector[j] = temp;
+                    }
+                }
+            }
+            return 0;
+        }
+
+    }
 }
