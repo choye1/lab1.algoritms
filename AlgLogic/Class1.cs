@@ -14,6 +14,7 @@ namespace AlgLogic
         int vectorLength { set; get; }
         int numberOfStarts { set; get; }
         float[] vector {  set; get; }
+
         public Test(AlgorithmItnerface Instance, int rangeOfRandomNumbers, int vectorLength, int numberOfStarts)
         {
             this.Instance = Instance;

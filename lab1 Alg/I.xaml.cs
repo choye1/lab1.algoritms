@@ -29,14 +29,25 @@ namespace lab1_Alg
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtStart(object sender, RoutedEventArgs e)
         {
-        }
+            try {
+                double maxValRandNum = SlMaxVal.Value;
+                int countStart = Convert.ToInt32(TbCountStart.Text);
+            }
+
+            catch { }
+
+            }
+
+
 
         private void ClearPlot(object sender, RoutedEventArgs e)
         {
             Graph.Plot.Clear();
 
         }
+
+        
     }
 }
