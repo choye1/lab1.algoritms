@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AlgLogic
 {
@@ -235,5 +236,45 @@ namespace AlgLogic
             return 0;
         }
 
+    }
+
+    public class AlgorithmQuickPow : AlgorithmItnerface
+    {
+        float[] vector { set; get; }
+        public AlgorithmQuickPow(float[] vector)
+        {
+            this.vector = vector;
+        }
+        public void QuickPow (int x, int n)
+        {
+            int c = x;
+            int k = n;
+            int f; 
+
+            if (k % 2 == 1)
+            {
+                f = c;
+            }
+            else
+            {
+                f = 1;
+            }
+
+            while (k != 0)
+            {
+                k = k / 2;
+                c = c * c;
+
+                if (k % 2 == 1)
+                {
+                    f = f * c;
+                }
+            }                         
+        }
+        public int ExecuteAlgorithm(float[] vector)
+        {
+            QuickPow();
+            return 0;
+        }
     }
 }
