@@ -204,22 +204,34 @@ namespace AlgLogic
         {
             this.vector = vector;
         }
+        public void QuickSort(float[] vector, int left, int right)
+        {
+            if (left > right) return;
+            int center = (int)vector[(vector.Length - 1) / 2];
+            int i = left;
+            int j = right;
+            while (i <= j)
+            {
+                while (vector[i] < center) i++;
+                while (vector[j] > center) j--;
+                if (i <= j)
+                {
+                    int temp = (int)vector[i];
+                    vector[i] = vector[j];
+                    vector[j] = temp;
+                    i++;
+                    j--;
+                }
+            }
+            QuickSort(vector, left, j);
+            QuickSort(vector, i, right);
+        }
 
         public int ExecuteAlgorithm(float[] vector)
         {
-            float temp = 0;
-            for (int i = 0; i < vector.Length; i++)
-            {
-                for (int j = i + 1; j < vector.Length; j++)
-                {
-                    if (vector[i] > vector[j])
-                    {
-                        temp = vector[i];
-                        vector[i] = vector[j];
-                        vector[j] = temp;
-                    }
-                }
-            }
+            int left = (int)vector[0];
+            int right = (int)vector[vector.Length];
+            QuickSort(vector, left, right);
             return 0;
         }
 
