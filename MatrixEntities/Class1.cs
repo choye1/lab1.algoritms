@@ -43,7 +43,7 @@ namespace MatrixEntities
                 }
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
-            return points.ToArray();
+            //return points.ToArray();
         }
 
     }
