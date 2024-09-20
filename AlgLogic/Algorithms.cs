@@ -122,6 +122,48 @@ namespace AlgLogic
         }
 
     }
+    public class AlgorithmPolynome : AlgorithmItnerface
+    {
+        int[] vector { set; get; }
+        public AlgorithmPolynome(int[] vector)
+        {
+            this.vector = vector;
+        }
+        public void CalculatePolynome(int[] vector)
+        {
+            double result = 0;
+            for (int i = 0; i < vector.Length; i++)
+            {
+                result += vector[i] * Math.Pow(1.5, i);
+            }
+        }
+        public int ExecuteAlgorithm(int[] vector)
+        {
+            CalculatePolynome(vector);
+            return 0;
+        }
+    }
+    public class AlgorithmPolynomeHorner : AlgorithmItnerface
+    {
+        int[] vector { set; get; }
+        public AlgorithmPolynomeHorner(int[] vector)
+        {
+            this.vector = vector;
+        }
+        public void CalculatePolynomeHorner(int[] vector)
+        {
+            double result = vector[vector.Length - 1];
+            for (int i = vector.Length - 2; i >= 0; i--)
+            {
+                result = result * 1.5 + vector[i];
+            }
+        }
+        public int ExecuteAlgorithm(int[] vector)
+        {
+            CalculatePolynomeHorner(vector);
+            return 0;
+        }
+    }
 
     public class AlgorithmQuickPow : AlgorithmItnerface
     {
