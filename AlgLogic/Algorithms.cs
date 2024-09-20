@@ -7,13 +7,13 @@ namespace AlgLogic
 
     public class Algorithm1 : AlgorithmItnerface
     {
-        float[] vector { set; get; }
-        public Algorithm1(float[] vector)
+        int[] vector { set; get; }
+        public Algorithm1(int[] vector)
         {
             this.vector = vector;
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             return 1;
         }
@@ -21,13 +21,13 @@ namespace AlgLogic
 
     public class Algorithm2 : AlgorithmItnerface
     {
-        float[] vector { set; get; }
-        public Algorithm2(float[] vector)
+        int[] vector { set; get; }
+        public Algorithm2(int[] vector)
         {
             this.vector = vector;
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             int sum = 0;
             foreach (int v in vector)
@@ -40,13 +40,13 @@ namespace AlgLogic
 
     public class Algorithm3 : AlgorithmItnerface
     {
-        float[] vector { set; get; }
-        public Algorithm3(float[] vector)
+        int[] vector { set; get; }
+        public Algorithm3(int[] vector)
         {
             this.vector = vector;
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             int mul = 0;
             foreach (int v in vector)
@@ -59,15 +59,15 @@ namespace AlgLogic
 
     public class AlgorithmBubbleSort : AlgorithmItnerface
     {
-        float[] vector { set; get; }
-        public AlgorithmBubbleSort(float[] vector)
+        int[] vector { set; get; }
+        public AlgorithmBubbleSort(int[] vector)
         {
             this.vector = vector;
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
-            float temp = 0;
+            int temp = 0;
             for (int i = 0; i < vector.Length; i++)
             {
                 for (int j = i + 1; j < vector.Length; j++)
@@ -85,12 +85,12 @@ namespace AlgLogic
     }
     public class AlgorithmQuickSort : AlgorithmItnerface
     {
-        float[] vector { set; get; }
-        public AlgorithmQuickSort(float[] vector)
+        int[] vector { set; get; }
+        public AlgorithmQuickSort(int[] vector)
         {
             this.vector = vector;
         }
-        public void QuickSort(float[] vector, int left, int right)
+        public void QuickSort(int[] vector, int left, int right)
         {
             if (left > right) return;
             int center = (int)vector[(vector.Length - 1) / 2];
@@ -113,7 +113,7 @@ namespace AlgLogic
             QuickSort(vector, i, right);
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             int left = (int)vector[0];
             int right = (int)vector[vector.Length];
@@ -125,9 +125,9 @@ namespace AlgLogic
 
     public class AlgorithmQuickPow : AlgorithmItnerface
     {
-        float[] vector { set; get; }
+        int[] vector { set; get; }
         int n { get; set; }
-        public AlgorithmQuickPow(float[] vector, int n)
+        public AlgorithmQuickPow(int[] vector, int n)
         {
             this.vector = vector;
             this.n = n;
@@ -159,7 +159,7 @@ namespace AlgLogic
                 }
             }
         }
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             for (int x = 0; x < vector.Length; x++)
             {
@@ -171,9 +171,9 @@ namespace AlgLogic
 
     public class AlgorithmQuickPow2 : AlgorithmItnerface
     {
-        public float[] vector { set; get; }
+        public int[] vector { set; get; }
         int n { set; get; }
-        public AlgorithmQuickPow2(float[] vector, int n)
+        public AlgorithmQuickPow2(int[] vector, int n)
         {
             this.vector = vector;
             this.n = n;
@@ -201,7 +201,7 @@ namespace AlgLogic
 
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             for (int x = 0; x < vector.Length; x++)
             {
@@ -213,9 +213,9 @@ namespace AlgLogic
 
     public class AlgorithmRecPow : AlgorithmItnerface
     {
-        public float[] vector { set; get; }
+        public int[] vector { set; get; }
         int n { set; get; }
-        public AlgorithmRecPow(float[] vector, int n)
+        public AlgorithmRecPow(int[] vector, int n)
         {
             this.vector = vector;
             this.n = n;
@@ -246,7 +246,7 @@ namespace AlgLogic
             return f;
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             for (int x = 0; x < vector.Length; x++)
             {
@@ -260,9 +260,9 @@ namespace AlgLogic
 
     public class AlgorithmClassicPow : AlgorithmItnerface
     {
-        public float[] vector { set; get; }
+        public int[] vector { set; get; }
         int n { set; get; }
-        public AlgorithmClassicPow(float[] vector, int n)
+        public AlgorithmClassicPow(int[] vector, int n)
         {
             this.vector = vector;
             this.n = n;
@@ -279,7 +279,7 @@ namespace AlgLogic
 
         }
 
-        public int ExecuteAlgorithm(float[] vector)
+        public int ExecuteAlgorithm(int[] vector)
         {
             for (int x = 0; x < vector.Length; x++)
             {

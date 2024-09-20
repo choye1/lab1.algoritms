@@ -10,21 +10,21 @@
             this.vectorLength = vectorLength;
             this.rangeOfRandomNumbers = rangeOfRandomNumbers;
         }
-        public float[] GenerateRandomVector()
+        public int[] GenerateRandomVector()
         {
-            float[] vector = new float[vectorLength]; //перепишите пж чтобы вектор был интовым и генерился на рандомных интах
+            int[] vector = new int[vectorLength]; 
             Random random = new Random();
 
             for (int i = 0; i < vectorLength; i++)
             {
-                vector[i] = (float)(random.NextDouble() * rangeOfRandomNumbers);
+                vector[i] = (random.Next(0, rangeOfRandomNumbers));
             }
 
             return vector;
         }
-        public float[] GenerateShuffleVector()
+        public int[] GenerateShuffleVector()
         {
-            float[] vector = new float[vectorLength];
+            int[] vector = new int[vectorLength];
 
             for (int i = 0; i < vectorLength; i++)
             {
@@ -34,7 +34,7 @@
             return Shuffle(vector);
 
         }
-        static float[] Shuffle(float[] vector)
+        static int[] Shuffle(int[] vector)
         {
             Random rng = new Random();
             int n = vector.Length;
@@ -42,7 +42,7 @@
             {
                 n--;
                 int k = rng.Next(n + 1);
-                float value = vector[k];
+                int value = vector[k];
                 vector[k] = vector[n];
                 vector[n] = value;
             }
