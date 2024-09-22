@@ -401,6 +401,77 @@ namespace AlgLogic
                 return 0;
             }
         }
+        public class AlgorithmMerge : AlgorithmItnerface
+        {
+            public int[] vector { get; set; }
+
+            public AlgorithmMerge(int[] vector)
+            {
+                this.vector = vector;
+            }
+            static void Merge(int[] vector, int lowIndex, int middleIndex, int highIndex)
+            {
+                var left = lowIndex;
+                var right = middleIndex + 1;
+                var tempArray = new int[highIndex - lowIndex + 1];
+                var index = 0;
+
+                while ((left <= middleIndex) && (right <= highIndex))
+                {
+                    if (vector[left] < vector[right])
+                    {
+                        tempArray[index] = vector[left];
+                        left++;
+                    }
+                    else
+                    {
+                        tempArray[index] = vector[right];
+                        right++;
+                    }
+
+                    index++;
+                }
+
+                for (var i = left; i <= middleIndex; i++)
+                {
+                    tempArray[index] = vector[i];
+                    index++;
+                }
+
+                for (var i = right; i <= highIndex; i++)
+                {
+                    tempArray[index] = vector[i];
+                    index++;
+                }
+
+                for (var i = 0; i < tempArray.Length; i++)
+                {
+                    vector[lowIndex + i] = tempArray[i];
+                }
+            }
+
+            //сортировка слиянием
+
+            static void MergeSort(int[] vector, int lowIndex, int highIndex)
+            {
+                if (lowIndex < highIndex)
+                {
+                    var middleIndex = (lowIndex + highIndex) / 2;
+                    MergeSort(vector, lowIndex, middleIndex);
+                    MergeSort(vector, middleIndex + 1, highIndex);
+                    Merge(vector, lowIndex, middleIndex, highIndex);
+                }
+            }
+            static void MergeSort(int[] vector)
+            {
+                MergeSort(vector, 0, vector.Length - 1);
+            }
+            public int ExecuteAlgorithm(int[] vector)
+            {
+                MergeSort(vector);
+                return 0;
+            }
+        }
     }
 
 }
