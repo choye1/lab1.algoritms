@@ -472,6 +472,62 @@ namespace AlgLogic
                 return 0;
             }
         }
+       
+
+
+        public class ALgorithmNumberPartitioning : AlgorithmItnerface
+        {
+            public int[] vector { set; get; }
+            public static bool CanPartition(int[] nums)
+            {
+                // считаем сумму все элементов
+                int totalSum = 0;
+                foreach (int num in nums)
+                {
+                    totalSum += num;
+                }
+
+                // если нечетно - сразу в топку
+                if (totalSum % 2 != 0)
+                {
+                    return false;
+                }
+
+                // находим половину суммы
+                int targetSum = totalSum / 2;
+
+                bool[,] dp = new bool[nums.Length + 1, targetSum + 1];
+
+                // заполняем первую строку
+                for (int i = 0; i <= nums.Length; i++)
+                {
+                    dp[i, 0] = true;
+                }
+                //заполняем массив
+                for (int i = 1; i <= nums.Length; i++)
+                {
+                    for (int j = 1; j <= targetSum; j++)
+                    {
+                        if (nums[i - 1] > j)
+                        {
+                            dp[i, j] = dp[i - 1, j];
+                        }
+                        else
+                        {
+                            dp[i, j] = dp[i - 1, j] || dp[i - 1, j - nums[i - 1]];
+                        }
+                    }
+                }
+
+                return dp[nums.Length, targetSum];
+            }
+
+            public int ExecuteAlgorithm(int[] vector)
+            {
+                CanPartition(vector);
+                return 0;
+            }
+        }
     }
 
 }
