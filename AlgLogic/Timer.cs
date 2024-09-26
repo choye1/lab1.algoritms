@@ -9,7 +9,7 @@ namespace AlgLogic
         {
             this.Instance = Instance;
         }
-        public float CalculateTime(float[] vector)
+        public float CalculateTime(int[] vector)
         {
             Stopwatch stopwatch = new Stopwatch();
 

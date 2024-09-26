@@ -27,6 +27,9 @@
                     GraphTimer graphTimer = new GraphTimer();
                     algorithmExecutionTime = graphTimer.CalculateTime(graph, graph.GetSubGraph(j));
                     points.Add(algorithmExecutionTime);
+
+                    string path = Path.Combine(Environment.CurrentDirectory, "Dijkstra");
+                    File.WriteAllText(path, algorithmExecutionTime.ToString());
                 }
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }

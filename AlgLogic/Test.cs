@@ -8,7 +8,7 @@
         int numberOfStarts { set; get; }
 
         int powNumber { set; get; }
-        float[] vector { set; get; }
+        int[] vector { set; get; }
         public Test(AlgorithmItnerface Instance, int rangeOfRandomNumbers, int vectorLength, int numberOfStarts)
         {
             this.Instance = Instance;
@@ -31,15 +31,19 @@
         {
             List<float> points = new List<float>();
             float algorithmExecutionTime;
+            string algorithmName = ""; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
             for (int i = 0; i < numberOfStarts; i++)
             {
                 for (int j = 0; j < vectorLength; j++)
                 {
                     Timer timer = new Timer(Instance);
-                    algorithmExecutionTime = timer.CalculateTime((float[])vector.Take(j));
+                    algorithmExecutionTime = timer.CalculateTime(vector.Take(j));
                     points.Add(algorithmExecutionTime);
+                    string path = Path.Combine(Environment.CurrentDirectory, algorithmName);
+                    File.WriteAllText(path, algorithmExecutionTime.ToString());
                 }
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
+
             }
             return points.ToArray();
         }
