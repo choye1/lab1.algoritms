@@ -8,16 +8,13 @@
         mc:Ignorable="d"
         Title="I" Height="450" Width="800">
     <Grid>
-        <ScottPlot:WpfPlot x:Name="Graph" Margin="0,0,491,217" />
-        <Button x:Name="Clear" Content="Очистить график" Margin="68,222,552,162" Click="ClearPlot"/>
+        <ScottPlot:WpfPlot x:Name="Graph" Margin="10,158,417,10" />
         <Label Content="Максимальный размер случайного числа:" HorizontalAlignment="Left" Margin="312,21,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="SlMaxVal" Minimum="1" Maximum="1000" HorizontalAlignment="Left" Height="26" Margin="560,21,0,0" SmallChange="1" TickPlacement="BottomRight" TickFrequency="10
-                "  VerticalAlignment="Top" Width="197"/>
+        <Slider x:Name="SlMaxVal" Minimum="1" Maximum="1000" HorizontalAlignment="Left" Height="26" IsSnapToTickEnabled="True" Margin="560,21,0,0" SmallChange="1" LargeChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="Количество запусков:" HorizontalAlignment="Left" Margin="368,76,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TbCountStart" HorizontalAlignment="Left" Height="26" Margin="559,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" />
-        <Button Content="Отрисовать" HorizontalAlignment="Center" Height="50" Margin="0,359,0,0" VerticalAlignment="Top" Width="180" Click="BtStart"/>
-        <Label Content = "Алгоритм:" HorizontalAlignment="Left" Margin="400,111,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="559,110,0,0" VerticalAlignment="Top" Width="198"  >
+        <Button Content="Отрисовать" HorizontalAlignment="Left" Height="31" Margin="433,310,0,0" VerticalAlignment="Top" Width="300" Click="BtStart"/>
+        <Label Content = "Алгоритм:" HorizontalAlignment="Left" Margin="11,110,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="77,109,0,0" VerticalAlignment="Top" Width="198"  >
             <ComboBoxItem Content="Постоянная ф-я"/>
             <ComboBoxItem Content="Сумма элементов"/>
             <ComboBoxItem Content="Произведение эл-тов"/>
@@ -27,11 +24,14 @@
             <ComboBoxItem Content="Tim Sort"/>
             <ComboBoxItem Content="Возведение в степень"/>
         </ComboBox>
-        <Label Content = "Введите через '','' какие запуски показать:" HorizontalAlignment="Left" Margin="312,144,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TbNumGraphs" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="560,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" />
+        <Label Content = "Введите через '','' какие запуски показать:" HorizontalAlignment="Left" Margin="312,110,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TbNumGraphs" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="560,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" />
         <Label Content="Длина вектора:" HorizontalAlignment="Left" Margin="386,46,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="SlVectorLength"  Minimum ="1" Maximum ="1000" HorizontalAlignment="Left" Height="26" Margin="560,50,0,0" SmallChange="1" TickPlacement="BottomRight" TickFrequency="10"  VerticalAlignment="Top" Width="197"/>
+        <Slider x:Name="SlVectorLength"  Minimum ="1" Maximum ="1000" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="560,50,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="{Binding ElementName=SlMaxVal, Path=Value}" HorizontalAlignment="Left" Height="26" Margin="758,16,0,0" VerticalAlignment="Top" Width="42"/>
         <Label Content="{Binding Value, ElementName=SlVectorLength}" HorizontalAlignment="Left" Height="26" Margin="758,46,0,0" VerticalAlignment="Top" Width="42"/>
+        <Button x:Name="BtClearPlot" Content="Отчистить график" HorizontalAlignment="Left" Height="31" Margin="433,355,0,0" VerticalAlignment="Top" Width="300" Click="ClearPlot"/>
+        <Slider x:Name="SlCountStart"  Minimum ="1" Maximum ="10" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="560,83,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
+        <Label Content="{Binding Value, ElementName=SlCountStart}" HorizontalAlignment="Left" Height="26" Margin="758,79,0,0" VerticalAlignment="Top" Width="42"/>
     </Grid>
 </Window>
