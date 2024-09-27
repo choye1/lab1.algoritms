@@ -7,7 +7,6 @@
         int vectorLength { set; get; }
         int numberOfStarts { set; get; }
 
-        int powNumber { set; get; }
         int[] vector { set; get; }
         public Test(AlgorithmItnerface Instance, int rangeOfRandomNumbers, int vectorLength, int numberOfStarts)
         {
@@ -18,15 +17,6 @@
             vector = new Vector(vectorLength, rangeOfRandomNumbers).GenerateRandomVector();
         }
 
-        public Test(AlgorithmItnerface Instance, int rangeOfRandomNumbers, int vectorLength, int numberOfStarts, int powNum)
-        {
-            this.Instance = Instance;
-            this.rangeOfRandomNumbers = rangeOfRandomNumbers;
-            this.vectorLength = vectorLength;
-            this.numberOfStarts = numberOfStarts;
-            vector = new Vector(vectorLength, rangeOfRandomNumbers).GenerateRandomVector();
-            this.powNumber = powNum;
-        }
         public float[] StartAlgorithm()
         {
             List<float> points = new List<float>();
