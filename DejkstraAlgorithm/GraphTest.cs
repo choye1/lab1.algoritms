@@ -28,8 +28,12 @@
                     algorithmExecutionTime = graphTimer.CalculateTime(graph, graph.GetSubGraph(j));
                     points.Add(algorithmExecutionTime);
 
-                    string path = Path.Combine(Environment.CurrentDirectory, "Dijkstra");
-                    File.WriteAllText(path, algorithmExecutionTime.ToString());
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+                    string filePath = Path.Combine(projectDirectory, "Dijkstra");
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        writer.WriteLine(algorithmExecutionTime);
+                    }
                 }
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }

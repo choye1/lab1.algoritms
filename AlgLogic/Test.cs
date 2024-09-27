@@ -29,8 +29,13 @@
                     Timer timer = new Timer(Instance);
                     algorithmExecutionTime = timer.CalculateTime(vector.Take(j).ToArray());
                     points.Add(algorithmExecutionTime);
-                    string path = Path.Combine(Environment.CurrentDirectory, algorithmName);
-                    File.WriteAllText(path, algorithmExecutionTime.ToString());
+
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+                    string filePath = Path.Combine(projectDirectory, algorithmName);
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        writer.WriteLine(algorithmExecutionTime);
+                    }
                 }
 
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх

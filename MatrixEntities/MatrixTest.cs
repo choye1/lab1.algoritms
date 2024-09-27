@@ -30,8 +30,12 @@
                     algorithmExecutionTime = matrixTimer.CalculateTime(A.GetSubmatrix(j), B.GetSubmatrix(j));
                     points.Add(algorithmExecutionTime);
 
-                    string path = Path.Combine(Environment.CurrentDirectory, "Matrix");
-                    File.WriteAllText(path, algorithmExecutionTime.ToString());
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+                    string filePath = Path.Combine(projectDirectory, "Matrix");
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        writer.WriteLine(algorithmExecutionTime);
+                    }
                 }
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
