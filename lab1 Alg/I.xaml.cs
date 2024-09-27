@@ -29,7 +29,6 @@ namespace lab1_Alg
             List<int> dataX = new List<int>();
             List<int> dataY = new List<int>();
             Graph.Plot.Add.Scatter(dataX, dataY);
-            
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
