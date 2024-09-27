@@ -26,25 +26,30 @@ namespace lab1_Alg
         public I()
         {
             InitializeComponent();
-            List<int> dataX = new List<int>();
-            List<int> dataY = new List<int>();
-            Graph.Plot.Add.Scatter(dataX, dataY);
+           
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
         {
-            try {
+            List<int> dataX = new List<int>();
+            List<float> dataY = new List<float>();
+            for (int i = 0; i < (int)SlVectorLength.Value; i++) { dataX.Add(i); }
+
+                try
+                {
                 int maxValRandNum = (int) SlMaxVal.Value;
-                int countStart = Convert.ToInt32(TbCountStart.Text);
-                int vectorLength = 0; // // // // //
+                int countStart = (int) SlCountStart.Value;
+                int vectorLength = (int)SlVectorLength.Value;
 
                 ComboBoxItem typeItem = (ComboBoxItem)SelectAlg.SelectedItem;
                 string nameAlg = typeItem.Content.ToString();
                 AlgorithmInterface algorithm =  CreateInstanseAlg(nameAlg);
 
                 Test test = new Test(algorithm, vectorLength, maxValRandNum, countStart);
-                test.StartAlgorithm();
-                
+                float[] result = test.StartAlgorithm();
+                dataY = result.ToList();
+                Graph.Plot.Add.Scatter(dataX, dataY);
+
             }
 
             catch {
