@@ -4,8 +4,8 @@ namespace AlgLogic
 {
     public class Timer
     {
-        public AlgorithmItnerface Instance { set; get; }
-        public Timer(AlgorithmItnerface Instance)
+        public AlgorithmInterface Instance { set; get; }
+        public Timer(AlgorithmInterface Instance)
         {
             this.Instance = Instance;
         }

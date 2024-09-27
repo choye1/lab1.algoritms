@@ -35,50 +35,54 @@ namespace lab1_Alg
         private void BtStart(object sender, RoutedEventArgs e)
         {
             try {
-                double maxValRandNum = SlMaxVal.Value;
+                int maxValRandNum = (int) SlMaxVal.Value;
                 int countStart = Convert.ToInt32(TbCountStart.Text);
+                int vectorLength = 0; // // // // //
+
                 ComboBoxItem typeItem = (ComboBoxItem)SelectAlg.SelectedItem;
                 string nameAlg = typeItem.Content.ToString();
-                int vectorLength = 1;
-                int rangeOfRandomNumbers = 2;
-                Vector vector = new Vector(vectorLength, rangeOfRandomNumbers);
+                AlgorithmInterface algorithm =  CreateInstanseAlg(nameAlg);
+
+                Test test = new Test(algorithm, vectorLength, maxValRandNum, countStart);
+                test.StartAlgorithm();
                 
-                CreateInstanseAlg(nameAlg, );
             }
 
-            catch { }
+            catch {
+                throw;
+            }
 
         }
 
-        private AlgorithmItnerface CreateInstanseAlg(string nameAlg, int[] vector)
+        private AlgorithmInterface CreateInstanseAlg(string nameAlg)
         {
             switch (nameAlg)
             {
                 case ("Постоянная ф-я"):
-                    return new Algorithm1(vector);
+                    return new Algorithm1();
                  
                 case ("Сумма элементов"):
-                    return new Algorithm2(vector);
+                    return new Algorithm2();
 
                 case ("Произведение эл-тов"): 
-                    return new Algorithm3(vector);
+                    return new Algorithm3();
 
                 case ("Метод Горнера"):
-                    return new AlgorithmPolynomeHorner(vector);
+                    return new AlgorithmPolynomeHorner();
 
                 case ("Bubble Sort"):
-                    return new AlgorithmBubbleSort(vector);
+                    return new AlgorithmBubbleSort();
 
                 case ("Quick Sort"):
-                    return new AlgorithmQuickSort(vector);
+                    return new AlgorithmQuickSort();
 
                 case ("Tim Sort"):
                     return new AlgorithmTimSort(); //вот тут что то не то, он должен принимать вектор, а он отказывается
 
                 case ("Возведение в степень"):
-                    return new AlgorithmClassicPow(vector);
+                    return new AlgorithmClassicPow();
 
-                default: return new Algorithm1(vector); 
+                default: return null; 
 
 
             }

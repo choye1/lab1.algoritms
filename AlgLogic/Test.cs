@@ -2,13 +2,13 @@
 {
     public class Test
     {
-        public AlgorithmItnerface Instance { set; get; }
+        public AlgorithmInterface Instance { set; get; }
         int rangeOfRandomNumbers { set; get; }
         int vectorLength { set; get; }
         int numberOfStarts { set; get; }
 
         int[] vector { set; get; }
-        public Test(AlgorithmItnerface Instance, int rangeOfRandomNumbers, int vectorLength, int numberOfStarts)
+        public Test(AlgorithmInterface Instance, int rangeOfRandomNumbers, int vectorLength, int numberOfStarts)
         {
             this.Instance = Instance;
             this.rangeOfRandomNumbers = rangeOfRandomNumbers;

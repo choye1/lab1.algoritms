@@ -1,6 +1,6 @@
 ﻿namespace AlgLogic
 {
-    public interface AlgorithmItnerface
+    public interface AlgorithmInterface
     {
         int ExecuteAlgorithm(int[] vector);
     }

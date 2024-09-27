@@ -6,7 +6,7 @@ using System.IO;
 namespace AlgLogic
 {
 
-    public class Algorithm1 : AlgorithmItnerface
+    public class Algorithm1 : AlgorithmInterface
     {
         public Algorithm1() { }
         public int ExecuteAlgorithm(int[] vector)
@@ -15,7 +15,7 @@ namespace AlgLogic
         }
     }
 
-    public class Algorithm2 : AlgorithmItnerface
+    public class Algorithm2 : AlgorithmInterface
     {
         public Algorithm2() { }
         public int ExecuteAlgorithm(int[] vector)
@@ -29,7 +29,7 @@ namespace AlgLogic
         }
     }
 
-    public class Algorithm3 : AlgorithmItnerface
+    public class Algorithm3 : AlgorithmInterface
     {
         public Algorithm3() { }
         public int ExecuteAlgorithm(int[] vector)
@@ -43,7 +43,7 @@ namespace AlgLogic
         }
     }
 
-    public class AlgorithmBubbleSort : AlgorithmItnerface
+    public class AlgorithmBubbleSort : AlgorithmInterface
     {
         public AlgorithmBubbleSort() { }
         public int ExecuteAlgorithm(int[] vector)
@@ -64,7 +64,7 @@ namespace AlgLogic
             return 0;
         }
     }
-    public class AlgorithmQuickSort : AlgorithmItnerface
+    public class AlgorithmQuickSort : AlgorithmInterface
     {
         public AlgorithmQuickSort() { }
 
@@ -100,7 +100,7 @@ namespace AlgLogic
         }
 
     }
-    public class AlgorithmPolynome : AlgorithmItnerface
+    public class AlgorithmPolynome : AlgorithmInterface
     {
         public AlgorithmPolynome(int[] vector) { }
 
@@ -118,9 +118,9 @@ namespace AlgLogic
             return 0;
         }
     }
-    public class AlgorithmPolynomeHorner : AlgorithmItnerface
+    public class AlgorithmPolynomeHorner : AlgorithmInterface
     {
-        public AlgorithmPolynomeHorner(int[] vector) { }
+        public AlgorithmPolynomeHorner() { }// int[] vector) { }
         public void CalculatePolynomeHorner(int[] vector)
         {
             double result = vector[vector.Length - 1];
@@ -136,7 +136,7 @@ namespace AlgLogic
         }
     }
 
-    public class AlgorithmQuickPow : AlgorithmItnerface
+    public class AlgorithmQuickPow : AlgorithmInterface
     {
         int n { get; set; }
         public AlgorithmQuickPow(int n)
@@ -179,7 +179,7 @@ namespace AlgLogic
         }
     }
 
-    public class AlgorithmQuickPow2 : AlgorithmItnerface
+    public class AlgorithmQuickPow2 : AlgorithmInterface
     {
         int n { set; get; }
         public AlgorithmQuickPow2(int n)
@@ -219,7 +219,7 @@ namespace AlgLogic
         }
     }
 
-    public class AlgorithmRecPow : AlgorithmItnerface
+    public class AlgorithmRecPow : AlgorithmInterface
     {
         int n { set; get; }
         public AlgorithmRecPow(int n)
@@ -264,10 +264,10 @@ namespace AlgLogic
 
     }
 
-    public class AlgorithmClassicPow : AlgorithmItnerface
+    public class AlgorithmClassicPow : AlgorithmInterface
     {
         int n { set; get; }
-        public AlgorithmClassicPow(int n)
+        public AlgorithmClassicPow()//int n)
         {
             this.n = n;
         }
@@ -293,7 +293,7 @@ namespace AlgLogic
             return 1;
         }
 
-        public class AlgorithmTimSort : AlgorithmItnerface
+        public class AlgorithmTimSort : AlgorithmInterface
         {
             private const int RUN = 32;
             public AlgorithmTimSort() { }
@@ -363,7 +363,7 @@ namespace AlgLogic
                 return 0;
             }
         }
-        public class AlgorithmMerge : AlgorithmItnerface
+        public class AlgorithmMerge : AlgorithmInterface
         {
             public AlgorithmMerge() { }
             static void Merge(int[] vector, int lowIndex, int middleIndex, int highIndex)
@@ -432,7 +432,7 @@ namespace AlgLogic
        
 
 
-        public class ALgorithmNumberPartitioning : AlgorithmItnerface
+        public class ALgorithmNumberPartitioning : AlgorithmInterface
         {
             public ALgorithmNumberPartitioning() { }
 
