@@ -334,7 +334,7 @@ namespace AlgLogic
 
         public class AlgorithmTimSort : AlgorithmItnerface
         {
-            public int[] vector { set; get; }
+            public int[] Vector { set; get; }
             private const int RUN = 32;
 
             public static void InsertionSort(int[] arr, int left, int right)
