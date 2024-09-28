@@ -31,7 +31,7 @@ namespace lab1_Alg
 
         private void BtStart(object sender, RoutedEventArgs e)
         {
-            List<int> dataX = new List<int>();
+            List<float> dataX = new List<float>();
             List<float> dataY = new List<float>();
             for (int i = 0; i < (int)SlVectorLength.Value; i++) { dataX.Add(i); }
 
@@ -50,11 +50,11 @@ namespace lab1_Alg
                 dataY = result.ToList();
                 Graph.Plot.Add.Scatter(dataX, dataY);
 
-            }
+                }
 
-            catch {
+         catch  {
                 throw;
-            }
+                }
 
         }
 
