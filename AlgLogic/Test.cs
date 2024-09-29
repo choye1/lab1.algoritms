@@ -31,32 +31,7 @@ namespace AlgLogic
                     Timer timer = new Timer(Instance);
                     algorithmExecutionTime = timer.CalculateTime(vector.Take(j).ToArray());
                     points.Add(algorithmExecutionTime);
-
-                    if (!Directory.Exists(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches")) 
-                    { 
-                        Directory.CreateDirectory(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches"); 
-                    }
-
-                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches";
-                    string filePath = Path.Combine(projectDirectory, algorithmName);
-
-                    if (!File.Exists(filePath)) 
-                    { 
-                        File.Create(filePath);
-                    }
-
-                    else
-                    {
-                        using (StreamWriter writer = new StreamWriter(filePath))
-                        {
-                            writer.WriteLine(0);
-                        }
-                    }
-
-                    using (StreamWriter writer = new StreamWriter(filePath))
-                    {
-                        writer.WriteLine(algorithmExecutionTime);
-                    }
+                    WriteFile(algorithmExecutionTime,algorithmName);
                 }
 
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
@@ -64,6 +39,48 @@ namespace AlgLogic
 
             return points.ToArray();
         }
+
+        private void WriteFile(float algorithmExecutionTime,string algorithmName) 
+        {
+            string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
+            СheckingExistenceDirectory(path);
+            CheckingExistenceFile(path, algorithmName);
+
+
+
+
+
+
+
+
+            //if (!Directory.Exists(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches"))
+            //{
+            //    Directory.CreateDirectory(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches");
+            //}
+
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches";
+            //string filePath = Path.Combine(projectDirectory, algorithmName);
+
+            //if (!File.Exists(filePath))
+            //{
+            //    File.Create(filePath);
+            //}
+
+            //else
+            //{
+            //    using (StreamWriter writer = new StreamWriter(filePath))
+            //    {
+            //        writer.WriteLine(0);
+            //    }
+            //}
+
+            //using (StreamWriter writer = new StreamWriter(filePath))
+            //{
+            //    writer.WriteLine(algorithmExecutionTime);
+            //}
+        }
+
+
 
     }
 
