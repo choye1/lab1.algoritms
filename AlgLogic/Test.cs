@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Security.AccessControl;
 
 namespace AlgLogic
 {
@@ -23,7 +25,7 @@ namespace AlgLogic
         {
             List<float> points = new List<float>();
             float algorithmExecutionTime;
-            string algorithmName = "alg2"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
+            string algorithmName = "alg6"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
             for (int i = 0; i < numberOfStarts; i++)
             {
                 for (int j = 0; j < vectorLength; j++)
@@ -31,53 +33,49 @@ namespace AlgLogic
                     Timer timer = new Timer(Instance);
                     algorithmExecutionTime = timer.CalculateTime(vector.Take(j).ToArray());
                     points.Add(algorithmExecutionTime);
-                    WriteFile(algorithmExecutionTime,algorithmName);
                 }
 
                 points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
 
+            WriteFile(points, algorithmName);
+
             return points.ToArray();
         }
 
-        private void WriteFile(float algorithmExecutionTime,string algorithmName) 
+        private void WriteFile(List<float> points,string algorithmName) 
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
             СheckingExistenceDirectory(path);
+            path += "\\launches";
+
             CheckingExistenceFile(path, algorithmName);
+            path += "\\" + algorithmName + ".txt";
+
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                
+                foreach (float value in points) { writer.WriteLine(value);}
+            }
 
 
+        }
 
+        private void СheckingExistenceDirectory(string path)
+        {
+            if (!Array.Exists(Directory.GetDirectories(path), element => element == "launches"))
+            {
+                Directory.CreateDirectory(path+"\\launches");
+            }
+        }
 
-
-
-
-
-            //if (!Directory.Exists(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches"))
-            //{
-            //    Directory.CreateDirectory(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches");
-            //}
-
-            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches";
-            //string filePath = Path.Combine(projectDirectory, algorithmName);
-
-            //if (!File.Exists(filePath))
-            //{
-            //    File.Create(filePath);
-            //}
-
-            //else
-            //{
-            //    using (StreamWriter writer = new StreamWriter(filePath))
-            //    {
-            //        writer.WriteLine(0);
-            //    }
-            //}
-
-            //using (StreamWriter writer = new StreamWriter(filePath))
-            //{
-            //    writer.WriteLine(algorithmExecutionTime);
-            //}
+        private void CheckingExistenceFile(string path, string algorithmName)
+        {  
+            if (!File.Exists(path + "\\" + algorithmName + ".txt"))
+            {
+                FileStream file = File.Create(path + "\\" + algorithmName + ".txt");
+                file.Close();
+            } 
         }
 
 
