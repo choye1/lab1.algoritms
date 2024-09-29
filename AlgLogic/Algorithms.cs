@@ -267,7 +267,7 @@ namespace AlgLogic
     public class AlgorithmClassicPow : AlgorithmInterface
     {
         int n { set; get; }
-        public AlgorithmClassicPow()//int n)
+        public AlgorithmClassicPow(int n)
         {
             this.n = n;
         }

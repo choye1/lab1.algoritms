@@ -22,7 +22,7 @@ namespace AlgLogic
 
             // Останавливаем измерение времени
             stopwatch.Stop();
-            TimeSpan timeSpan = stopwatch.Elapsed; ;
+            TimeSpan timeSpan = stopwatch.Elapsed;
             stopwatch.Reset();
 
             // Получаем время выполнения в миллисекундах
