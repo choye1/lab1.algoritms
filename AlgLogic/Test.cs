@@ -1,4 +1,6 @@
-﻿namespace AlgLogic
+﻿using System.IO;
+
+namespace AlgLogic
 {
     public class Test
     {
@@ -21,7 +23,7 @@
         {
             List<float> points = new List<float>();
             float algorithmExecutionTime;
-            string algorithmName = ""; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
+            string algorithmName = "alg2"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
             for (int i = 0; i < numberOfStarts; i++)
             {
                 for (int j = 0; j < vectorLength; j++)
@@ -30,8 +32,27 @@
                     algorithmExecutionTime = timer.CalculateTime(vector.Take(j).ToArray());
                     points.Add(algorithmExecutionTime);
 
-                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+                    if (!Directory.Exists(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches")) 
+                    { 
+                        Directory.CreateDirectory(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches"); 
+                    }
+
+                    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\" + "launches";
                     string filePath = Path.Combine(projectDirectory, algorithmName);
+
+                    if (!File.Exists(filePath)) 
+                    { 
+                        File.Create(filePath);
+                    }
+
+                    else
+                    {
+                        using (StreamWriter writer = new StreamWriter(filePath))
+                        {
+                            writer.WriteLine(0);
+                        }
+                    }
+
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
                         writer.WriteLine(algorithmExecutionTime);
