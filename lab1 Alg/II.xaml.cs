@@ -62,7 +62,7 @@ namespace lab1_Alg
 
                 else
                 {
-                    List<float> dataY = resultList[int.Parse(i)].ToList();
+                    List<float> dataY = resultList[int.Parse(i)-1].ToList();
                     Graph2.Plot.Add.Scatter(dataX, dataY);
                     Graph2.Refresh();
 
