@@ -27,7 +27,8 @@ namespace lab1_Alg
         public I()
         {
             InitializeComponent();
-
+            Graph.Plot.Axes.SetLimits(0, 10000);
+            Graph.Plot.Axes.SetLimitsY(0, 10000);
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
@@ -60,16 +61,16 @@ namespace lab1_Alg
             }
         }
 
-        private void Output(Dictionary<int, float[]> resultDic, List<float> dataX)
+        private void Output(List<List<float>> resultList, List<float> dataX)
         { 
             string[] numGraphs = TbNumGraphs.Text.Split(',');
-            foreach(var item in numGraphs)
+            foreach(var i in numGraphs)
             {
-                if(item.Split('-').Length == 2)
+                if(i.Split('-').Length == 2)
                 {
-                    for (int i = Convert.ToInt32(item.Split('-')[0]); i <= Convert.ToInt32(item.Split("-")[1]); i++) 
+                    for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++) 
                     {
-                        List<float> dataY = resultDic[i].ToList();
+                        List<float> dataY = resultList[j].ToList();
                         Graph.Plot.Add.Scatter(dataX, dataY);
                         Graph.Refresh();
                     }
@@ -77,7 +78,7 @@ namespace lab1_Alg
 
                 else
                 {
-                    List<float> dataY = resultDic[Convert.ToInt32(item)].ToList();
+                    List<float> dataY = resultList[int.Parse(i)].ToList();
                     Graph.Plot.Add.Scatter(dataX, dataY);
                     Graph.Refresh();
 
@@ -85,37 +86,26 @@ namespace lab1_Alg
             }
         }
 
-        private Dictionary<int, float[]> Slise(float[] result) 
+        private List<List<float>> Slise(float[] result) 
         {
-            int i = 1;
-            int j = 0;
-            Dictionary<int, List<float>> keyValuePairs = new Dictionary<int, List<float>>();
-            List<float> data = new List<float>();
+            int i = 0;
+            List <List<float>> resultList  = new List<List<float>>() { };
+            resultList.Add(new List<float>());
             foreach (var item in result) 
             {
                 if (item == -1)
                 {
-                    keyValuePairs.Add(i, Array.Copy(data.ToArray(), new List<float>(), data.ToArray().Length));
-                    data.Clear();
                     i++;
-                    j++;
-
+                    resultList.Add(new List<float>());
                 }
 
                 else
                 {
-                    data.Add(item);
-                    j++;
+                    resultList[i].Add(item);
                 }
             }
 
-            Dictionary<int, float[]> resultDic = new Dictionary<int, float[]>();
-            foreach(var item in keyValuePairs.Keys)
-            {
-                resultDic.Add(item, keyValuePairs[item].ToArray());
-            }
-
-            return resultDic;
+            return resultList;
         }
 
 
