@@ -4,6 +4,7 @@ namespace DijkstraAlgorithm
 {
     public class GraphTimer
     {
+        public GraphTimer() { }
         public float CalculateTime(Graph graph, int[,] graphData)
         {
             Stopwatch stopwatch = new Stopwatch();
