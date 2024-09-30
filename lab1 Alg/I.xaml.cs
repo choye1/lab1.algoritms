@@ -90,19 +90,21 @@ namespace lab1_Alg
             int i = 1;
             int j = 0;
             Dictionary<int, List<float>> keyValuePairs = new Dictionary<int, List<float>>();
-            keyValuePairs.Add(i, new List<float>());
+            List<float> data = new List<float>();
             foreach (var item in result) 
             {
                 if (item == -1)
                 {
+                    keyValuePairs.Add(i, Array.Copy(data.ToArray(), new List<float>(), data.ToArray().Length));
+                    data.Clear();
                     i++;
                     j++;
-                    keyValuePairs.Add(i, new List<float>());
+
                 }
 
                 else
                 {
-                    keyValuePairs[i].Append(item);
+                    data.Add(item);
                     j++;
                 }
             }
@@ -110,7 +112,7 @@ namespace lab1_Alg
             Dictionary<int, float[]> resultDic = new Dictionary<int, float[]>();
             foreach(var item in keyValuePairs.Keys)
             {
-                resultDic[item] = keyValuePairs[item].ToArray();
+                resultDic.Add(item, keyValuePairs[item].ToArray());
             }
 
             return resultDic;
