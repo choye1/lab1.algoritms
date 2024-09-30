@@ -34,7 +34,7 @@ namespace AlgLogic
         public Algorithm3() { }
         public int ExecuteAlgorithm(int[] vector)
         {
-            int mul = 0;
+            int mul = 1;
             foreach (int v in vector)
             {
                 mul *= v;
