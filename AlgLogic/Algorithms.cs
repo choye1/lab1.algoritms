@@ -445,7 +445,6 @@ namespace AlgLogic
                     totalSum += num;
                 }
 
-                // если нечетно - сразу в топку
                 if (totalSum % 2 != 0)
                 {
                     return false;
