@@ -28,14 +28,14 @@ namespace AlgLogic
             string algorithmName = "alg6"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
             for (int i = 0; i < numberOfStarts; i++)
             {
-                for (int j = 0; j < vectorLength; j++)
+                for (int j = 1; j < vectorLength; j++)
                 {
                     Timer timer = new Timer(Instance);
                     algorithmExecutionTime = timer.CalculateTime(vector.Take(j).ToArray());
-                    points.Add(algorithmExecutionTime);
+                    points.Add(algorithmExecutionTime*100);
                 }
 
-                points.Add(0); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
+                points.Add(-1); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
 
             WriteFile(points, algorithmName);
@@ -57,8 +57,6 @@ namespace AlgLogic
                 
                 foreach (float value in points) { writer.WriteLine(value);}
             }
-
-
         }
 
         private void СheckingExistenceDirectory(string path)

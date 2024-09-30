@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,39 +27,98 @@ namespace lab1_Alg
         public I()
         {
             InitializeComponent();
-           
+
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
         {
             List<float> dataX = new List<float>();
-            List<float> dataY = new List<float>();
             for (int i = 0; i < (int)SlVectorLength.Value; i++) { dataX.Add(i); }
 
-                try
-                {
-                int maxValRandNum = (int) SlMaxVal.Value;
-                int countStart = (int) SlCountStart.Value;
+            try
+            {
+                int p = Convert.ToInt32(TbPow.Text);
+                int maxValRandNum = (int)SlMaxVal.Value;
+                int countStart = (int)SlCountStart.Value;
                 int vectorLength = (int)SlVectorLength.Value;
 
                 ComboBoxItem typeItem = (ComboBoxItem)SelectAlg.SelectedItem;
                 string nameAlg = typeItem.Content.ToString();
-                AlgorithmInterface algorithm =  CreateInstanseAlg(nameAlg);
+                AlgorithmInterface algorithm = CreateInstanseAlg(nameAlg, p);
 
-                Test test = new Test(algorithm, vectorLength, maxValRandNum, countStart);
+                Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
                 float[] result = test.StartAlgorithm();
-                dataY = result.ToList();
-                Graph.Plot.Add.Scatter(dataX, dataY);
+                Output(Slise(result), dataX);
+                //dataY = result.ToList();
+                //Graph.Plot.Add.Scatter(dataX, dataY);
+                //Graph.Refresh();
+            }
 
-                }
-
-         catch  {
+            catch
+            {
                 throw;
-                }
-
+            }
         }
 
-        private AlgorithmInterface CreateInstanseAlg(string nameAlg)
+        private void Output(Dictionary<int, float[]> resultDic, List<float> dataX)
+        { 
+            string[] numGraphs = TbNumGraphs.Text.Split(',');
+            foreach(var item in numGraphs)
+            {
+                if(item.Split('-').Length == 2)
+                {
+                    for (int i = Convert.ToInt32(item.Split('-')[0]); i <= Convert.ToInt32(item.Split("-")[1]); i++) 
+                    {
+                        List<float> dataY = resultDic[i].ToList();
+                        Graph.Plot.Add.Scatter(dataX, dataY);
+                        Graph.Refresh();
+                    }
+                }
+
+                else
+                {
+                    List<float> dataY = resultDic[Convert.ToInt32(item)].ToList();
+                    Graph.Plot.Add.Scatter(dataX, dataY);
+                    Graph.Refresh();
+
+                }
+            }
+        }
+
+        private Dictionary<int, float[]> Slise(float[] result) 
+        {
+            int i = 1;
+            int j = 0;
+            Dictionary<int, List<float>> keyValuePairs = new Dictionary<int, List<float>>();
+            keyValuePairs.Add(i, new List<float>());
+            foreach (var item in result) 
+            {
+                if (item == -1)
+                {
+                    i++;
+                    j++;
+                    keyValuePairs.Add(i, new List<float>());
+                }
+
+                else
+                {
+                    keyValuePairs[i].Append(item);
+                    j++;
+                }
+            }
+
+            Dictionary<int, float[]> resultDic = new Dictionary<int, float[]>();
+            foreach(var item in keyValuePairs.Keys)
+            {
+                resultDic[item] = keyValuePairs[item].ToArray();
+            }
+
+            return resultDic;
+        }
+
+
+
+        private AlgorithmInterface CreateInstanseAlg(string nameAlg, int p)
         {
             switch (nameAlg)
             {
@@ -84,7 +144,7 @@ namespace lab1_Alg
                     return new AlgorithmTimSort(); //вот тут что то не то, он должен принимать вектор, а он отказывается
 
                 case ("Возведение в степень"):
-                    return new AlgorithmClassicPow();
+                    return new AlgorithmClassicPow(p);
 
                 default: return null; 
 
@@ -96,6 +156,7 @@ namespace lab1_Alg
         private void ClearPlot(object sender, RoutedEventArgs e)
         {
             Graph.Plot.Clear();
+            Graph.Refresh();
 
         }
 

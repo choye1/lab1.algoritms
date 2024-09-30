@@ -37,5 +37,7 @@
         <Button x:Name="BtClearPlot" Content="Отчистить график" HorizontalAlignment="Left" Height="31" Margin="433,151,0,0" VerticalAlignment="Top" Width="300" Click="ClearPlot" Grid.Row="1"/>
         <Slider x:Name="SlCountStart"  Minimum ="1" Maximum ="10" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="560,83,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="{Binding Value, ElementName=SlCountStart}" HorizontalAlignment="Left" Height="26" Margin="758,79,0,0" VerticalAlignment="Top" Width="42"/>
+        <TextBox x:Name="TbPow" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="560,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" />
+        <Label Content = "Степень (для алгоритмов возведения в степень) " HorizontalAlignment="Left" Margin="293,137,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

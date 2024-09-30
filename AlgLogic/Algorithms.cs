@@ -118,7 +118,7 @@ namespace AlgLogic
             return 0;
         }
     }
-    public class AlgorithmPolynomeHorner : AlgorithmInterface
+    public class AlgorithmPolynomeHorner : AlgorithmInterface 
     {
         public AlgorithmPolynomeHorner() { }// int[] vector) { }
         public void CalculatePolynomeHorner(int[] vector)
