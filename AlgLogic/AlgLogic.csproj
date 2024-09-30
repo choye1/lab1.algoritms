@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DejkstraAlgorithm\DijkstraAlgorithm.csproj" />
     <ProjectReference Include="..\MatrixEntities\MatrixEntities.csproj" />
   </ItemGroup>
 
