@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <ScottPlot:WpfPlot x:Name="Graph" Margin="10,88,349,10" Grid.RowSpan="2" />
         <Label Content="Максимальный размер случайного числа:" HorizontalAlignment="Left" Margin="506,16,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="SlMaxVal" Minimum="1" Maximum="1000" HorizontalAlignment="Left" Height="26" IsSnapToTickEnabled="True" Margin="529,46,0,0" SmallChange="1" LargeChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
+        <Slider x:Name="SlMaxVal" Minimum="1" Maximum="1000000" HorizontalAlignment="Left" Height="26" IsSnapToTickEnabled="True" Margin="529,46,0,0" SmallChange="1" LargeChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="Количество запусков:" HorizontalAlignment="Left" Margin="564,136,0,0" VerticalAlignment="Top"/>
         <Button Content="Отрисовать" HorizontalAlignment="Left" Height="31" Margin="475,122,0,0" VerticalAlignment="Top" Width="300" Click="BtStart" Grid.Row="1"/>
         <Label Content = "Алгоритм:" HorizontalAlignment="Left" Margin="99,17,0,0" VerticalAlignment="Top"/>
@@ -31,13 +31,14 @@
         <Label Content = "Введите через '','' или ''-'' какие запуски показать:" HorizontalAlignment="Left" Margin="486,198,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <TextBox x:Name="TbNumGraphs" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="530,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Grid.Row="1" />
         <Label Content="Длина вектора:" HorizontalAlignment="Left" Margin="580,75,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="SlVectorLength"  Minimum ="1" Maximum ="1000" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,105,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="198"/>
-        <Label Content="{Binding ElementName=SlMaxVal, Path=Value}" HorizontalAlignment="Left" Height="26" Margin="736,41,0,0" VerticalAlignment="Top" Width="42"/>
-        <Label Content="{Binding Value, ElementName=SlVectorLength}" HorizontalAlignment="Left" Height="26" Margin="736,102,0,0" VerticalAlignment="Top" Width="42"/>
+        <Slider x:Name="SlVectorLength"  Minimum ="1" Maximum ="1000000" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,105,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="198"/>
+        <Label Content="{Binding ElementName=SlMaxVal, Path=Value}" HorizontalAlignment="Left" Height="26" Margin="736,41,0,0" VerticalAlignment="Top" Width="64"/>
+        <Label Content="{Binding Value, ElementName=SlVectorLength}" HorizontalAlignment="Left" Height="26" Margin="736,102,0,0" VerticalAlignment="Top" Width="64"/>
         <Button x:Name="BtClearPlot" Content="Отчистить график" HorizontalAlignment="Left" Height="31" Margin="475,167,0,0" VerticalAlignment="Top" Width="300" Click="ClearPlot" Grid.Row="1"/>
         <Slider x:Name="SlCountStart"  Minimum ="1" Maximum ="10" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,167,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="{Binding Value, ElementName=SlCountStart}" HorizontalAlignment="Left" Height="26" Margin="736,162,0,0" VerticalAlignment="Top" Width="42"/>
         <TextBox x:Name="TbPow" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="530,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Grid.Row="1" />
         <Label Content = "Степень (для алгоритмов возведения в степень) " HorizontalAlignment="Left" Margin="489,59,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <CheckBox x:Name="CbLoad" Content="Загрузить сохранение" HorizontalAlignment="Left" Height="21" Margin="186,51,0,0" VerticalAlignment="Top" Width="157" />
     </Grid>
 </Window>
