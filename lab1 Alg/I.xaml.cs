@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Printing;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,13 +29,15 @@ namespace lab1_Alg
         public I()
         {
             InitializeComponent();
-
+            Graph.Plot.Axes.SetLimits(0, 10000);
+            Graph.Plot.Axes.SetLimitsY(0, 10000);
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
         {
             List<float> dataX = new List<float>();
             for (int i = 0; i < (int)SlVectorLength.Value; i++) { dataX.Add(i); }
+            
 
             try
             {
@@ -41,17 +45,25 @@ namespace lab1_Alg
                 int maxValRandNum = (int)SlMaxVal.Value;
                 int countStart = (int)SlCountStart.Value;
                 int vectorLength = (int)SlVectorLength.Value;
+                
 
                 ComboBoxItem typeItem = (ComboBoxItem)SelectAlg.SelectedItem;
                 string nameAlg = typeItem.Content.ToString();
                 AlgorithmInterface algorithm = CreateInstanseAlg(nameAlg, p);
 
-                Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
-                float[] result = test.StartAlgorithm();
-                Output(Slise(result), dataX);
-                //dataY = result.ToList();
-                //Graph.Plot.Add.Scatter(dataX, dataY);
-                //Graph.Refresh();
+                if (CbLoad.IsChecked == true)
+                {
+                    Load(nameAlg);
+
+                }
+
+                else
+                {
+                    Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
+                    float[] result = test.StartAlgorithm();
+                    Output(Slise(result), dataX);
+                }
+              
             }
 
             catch
@@ -107,6 +119,26 @@ namespace lab1_Alg
             return resultList;
         }
 
+        private void Load(string name)
+        {
+            string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
+            path += "\\" + "launches" + "\\" + name + ".txt";
+            string[] result = File.ReadAllLines(path);
+            List<float> res = new List<float>();
+            List<float> dataX = new List<float>();
+            foreach (var item in result)
+            {
+                res.Add((float)Convert.ToDouble(item));
+                
+            }
+
+            for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
+
+
+            Output(Slise(res.ToArray()),dataX);
+
+
+        }
 
 
         private AlgorithmInterface CreateInstanseAlg(string nameAlg, int p)
