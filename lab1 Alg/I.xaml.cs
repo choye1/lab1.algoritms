@@ -27,7 +27,8 @@ namespace lab1_Alg
         public I()
         {
             InitializeComponent();
-
+            Graph.Plot.Axes.SetLimits(0, 10000);
+            Graph.Plot.Axes.SetLimitsY(0, 10000);
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
