@@ -8,8 +8,20 @@
         mc:Ignorable="d"
         Title="II" Height="450" Width="800">
     <Grid>
-        <ScottPlot:WpfPlot x:Name="Graph2" Margin="0,0,483,217" />
-        <Button x:Name="Clear" Content="Очистить график" Margin="68,222,552,162" Click="ClearPlot"/>
+        <ScottPlot:WpfPlot x:Name="Graph2" Margin="10,129,381,10" />
+        <Button Content="Отрисовать" HorizontalAlignment="Left" Height="31" Margin="475,294,0,0" VerticalAlignment="Top" Width="300" Click="Button_Click"/>
+        <Button x:Name="BtClearPlot" Content="Отчистить график" HorizontalAlignment="Left" Height="31" Margin="475,340,0,0" VerticalAlignment="Top" Width="300" Click="ClearPlot"/>
+        <Label Content="Максимальный размер случайного числа:" HorizontalAlignment="Left" Margin="506,16,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="SlMaxVal" Minimum="1" Maximum="1000000" HorizontalAlignment="Left" Height="26" IsSnapToTickEnabled="True" Margin="529,46,0,0" SmallChange="1" LargeChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
+        <Label Content="Количество запусков:" HorizontalAlignment="Left" Margin="564,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="Размер матриц" HorizontalAlignment="Left" Margin="580,75,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="SlMarixSize"  Minimum ="1" Maximum ="1000000" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,105,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="198"/>
+        <Label Content="{Binding Value, ElementName=SlMaxVal}" HorizontalAlignment="Left" Height="26" Margin="736,41,0,0" VerticalAlignment="Top" Width="64"/>
+        <Label Content="{Binding Value, ElementName=SlMarixSize}" HorizontalAlignment="Left" Height="26" Margin="736,102,0,0" VerticalAlignment="Top" Width="64"/>
+        <Slider x:Name="SlCountStart"  Minimum ="1" Maximum ="10" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,167,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
+        <Label Content="{Binding Value, ElementName=SlCountStart}" HorizontalAlignment="Left" Height="26" Margin="736,162,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label Content = "Введите через '','' или ''-'' какие запуски показать:" HorizontalAlignment="Left" Margin="486,198,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TbNumGraph2" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="530,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" />
 
     </Grid>
 </Window>
