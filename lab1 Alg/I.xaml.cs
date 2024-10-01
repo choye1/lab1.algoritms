@@ -185,7 +185,7 @@ namespace lab1_Alg
                     return new AlgorithmClassicPow(p);
 
 
-                case ("Сортировка Слиянием"):
+                case ("Сортировка слиянием"):
                     return new AlgorithmMerge();
 
                 case ("Задача о разбиении множества"):
