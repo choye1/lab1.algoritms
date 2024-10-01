@@ -25,7 +25,7 @@ namespace AlgLogic
         {
             List<float> points = new List<float>();
             float algorithmExecutionTime;
-            string algorithmName = "Bubble Sort"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
+            string algorithmName = "Сумма элементов"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
             for (int i = 0; i < numberOfStarts; i++)
             {
                 for (int j = 1; j < vectorLength; j++)
