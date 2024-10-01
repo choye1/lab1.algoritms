@@ -4,14 +4,24 @@
     {
         public int[,] graphData;
         int graphSize { get; set; }
+
         public Graph(int graphSize)
         {
             this.graphSize = graphSize;
             graphData = new int[graphSize, graphSize];
+            for (int i = 0; i < graphSize; i++)
+            {
+                for (int j = 0; j < graphSize; j++)
+                {
+                    graphData[i, j] = i == j ? 0 : int.MaxValue; // Инициализация диагональных элементов нулями и остальных int.MaxValue
+                }
+            }
         }
+
         public Graph(int[,] data)
         {
             this.graphData = data;
+            this.graphSize = data.GetLength(0);
         }
 
         public Graph GenerateRandomGraph(int rangeOfRandomNumbers)
@@ -23,7 +33,14 @@
             {
                 for (int j = 0; j < graphSize; j++)
                 {
-                    graphData[i, j] = random.Next(0, rangeOfRandomNumbers); // Генерация случайных неотрицательных чисел
+                    if (i == j)
+                    {
+                        graphData[i, j] = 0; // Диагональные элементы равны 0
+                    }
+                    else
+                    {
+                        graphData[i, j] = random.Next(1, rangeOfRandomNumbers); // Генерация случайных неотрицательных чисел
+                    }
                 }
             }
 
@@ -51,7 +68,7 @@
 
                 for (int v = 0; v < numVertices; v++)
                 {
-                    if (!visited[v] && graph[u, v] != 0 &&
+                    if (!visited[v] && graph[u, v] != int.MaxValue &&
                         distances[u] != int.MaxValue &&
                         distances[u] + graph[u, v] < distances[v])
                     {
@@ -70,7 +87,7 @@
 
             for (int v = 0; v < distances.Length; v++)
             {
-                if (!visited[v] && distances[v] <= min)
+                if (!visited[v] && distances[v] < min)
                 {
                     min = distances[v];
                     minIndex = v;
@@ -82,6 +99,10 @@
 
         public int[,] GetSubGraph(int subSize)
         {
+            if (subSize > graphSize)
+            {
+                throw new ArgumentException("subSize cannot be greater than graphSize");
+            }
 
             int[,] subGraphData = new int[subSize, subSize];
 

@@ -28,7 +28,7 @@
                 {
                     MatrixTimer matrixTimer = new MatrixTimer(j);
                     algorithmExecutionTime = matrixTimer.CalculateTime(A.GetSubmatrix(j), B.GetSubmatrix(j));
-                    points.Add(algorithmExecutionTime);
+                    points.Add(algorithmExecutionTime*100);
 
                     string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
                     string filePath = Path.Combine(projectDirectory, "Matrix");

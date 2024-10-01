@@ -17,10 +17,11 @@ namespace DijkstraAlgorithm
 
             // Останавливаем измерение времени
             stopwatch.Stop();
+            TimeSpan timeSpan = stopwatch.Elapsed;
+            stopwatch.Reset();
 
             // Получаем время выполнения в миллисекундах
-            float elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-            return elapsedMilliseconds;
+            return (float)timeSpan.TotalMilliseconds;
         }
 
     }
