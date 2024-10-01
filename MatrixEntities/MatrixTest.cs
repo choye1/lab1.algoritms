@@ -40,11 +40,12 @@
                 points.Add(-1); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
 
-            WriteFile(points, "Matrix");
+            //WriteFile(points, "Matrix");
+           
+            
             return points.ToArray();
         }
 
-        ///* В конце удалить "//" здесь и в конце файла тест.
         private void WriteFile(List<float> points, string algorithmName)
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
@@ -77,7 +78,7 @@
                 file.Close();
             }
         }
-        //*/
+       
 
 
     }
