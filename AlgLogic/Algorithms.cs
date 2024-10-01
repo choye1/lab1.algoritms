@@ -71,7 +71,7 @@ namespace AlgLogic
         public void QuickSort(int[] vector, int left, int right)
         {
             if (left > right) return;
-            int center = (int)vector[(vector.Length - 1) / 2];
+            int center = vector[(vector.Length - 1) / 2];
             int i = left;
             int j = right;
             while (i <= j)
@@ -80,7 +80,7 @@ namespace AlgLogic
                 while (vector[j] > center) j--;
                 if (i <= j)
                 {
-                    int temp = (int)vector[i];
+                    int temp = vector[i];
                     vector[i] = vector[j];
                     vector[j] = temp;
                     i++;
@@ -93,8 +93,8 @@ namespace AlgLogic
 
         public int ExecuteAlgorithm(int[] vector)
         {
-            int left = (int)vector[0];
-            int right = (int)vector[vector.Length];
+            int left = vector[0];
+            int right = vector[vector.Length];
             QuickSort(vector, left, right);
             return 0;
         }
@@ -120,7 +120,7 @@ namespace AlgLogic
     }
     public class AlgorithmPolynomeHorner : AlgorithmInterface 
     {
-        public AlgorithmPolynomeHorner() { }// int[] vector) { }
+        public AlgorithmPolynomeHorner() { }
         public void CalculatePolynomeHorner(int[] vector)
         {
             double result = vector[vector.Length - 1];

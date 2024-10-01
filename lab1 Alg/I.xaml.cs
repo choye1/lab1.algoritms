@@ -18,13 +18,18 @@ using System.Windows.Shapes;
 using AlgLogic;
 using ScottPlot;
 using static AlgLogic.AlgorithmClassicPow;
+using MathNet.Numerics;
+
+
+//double[] xData = { /* ваши данные по оси X */ };
+//double[] yData = { /* ваши данные по оси Y */ };
+
+//double[] coefficients = Fit.Polynomial(xData, yData, 1);
+
 
 namespace lab1_Alg
 {
-    /// <summary>
-    /// Логика взаимодействия для I.xaml
-    /// </summary>
-    public partial class I : Window
+    public partial class I : System.Windows.Window
     {
         public I()
         {
@@ -82,7 +87,7 @@ namespace lab1_Alg
                 {
                     for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++) 
                     {
-                        List<float> dataY = resultList[j].ToList();
+                        List<float> dataY = resultList[j-1].ToList();
                         Graph.Plot.Add.Scatter(dataX, dataY);
                         Graph.Refresh();
                     }
@@ -167,14 +172,25 @@ namespace lab1_Alg
                 case ("Tim Sort"):
                     return new AlgorithmTimSort(); //вот тут что то не то, он должен принимать вектор, а он отказывается
 
-                case ("Возведение в степень"):
+                case ("Quick Pow"):
+                    return new AlgorithmQuickPow(p);
+
+                case ("Quick Pow2"):
+                    return new AlgorithmQuickPow2(p);
+
+                case ("Rec Pow"):
+                    return new AlgorithmRecPow(p);
+
+                case ("Classic Pow"):
                     return new AlgorithmClassicPow(p);
+
 
                 case ("Сортировка Слиянием"):
                     return new AlgorithmMerge();
 
                 case ("Задача о разбиении множества"):
                     return new ALgorithmNumberPartitioning();
+
 
                 default: return null; 
 

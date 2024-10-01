@@ -30,7 +30,10 @@
             <ComboBoxItem Content="Bubble Sort"/>
             <ComboBoxItem Content="Quick Sort"/>
             <ComboBoxItem Content="Tim Sort"/>
-            <ComboBoxItem Content="Возведение в степень"/>
+            <ComboBoxItem Content="Quick pow"/>
+            <ComboBoxItem Content="Quick pow 2"/>
+            <ComboBoxItem Content="Rec pow"/>
+            <ComboBoxItem Content="Classic pow"/>
             <ComboBoxItem Content="Сортировка слиянием"/>
             <ComboBoxItem Content="Задача о разбиении множества"/>
         </ComboBox>
