@@ -70,8 +70,8 @@ namespace AlgLogic
 
         public void QuickSort(int[] vector, int left, int right)
         {
-            if (left > right) return;
-            int center = (int)vector[(vector.Length - 1) / 2];
+            if (left >= right) return;
+            int center = vector[(left + right) / 2];
             int i = left;
             int j = right;
             while (i <= j)
@@ -80,26 +80,25 @@ namespace AlgLogic
                 while (vector[j] > center) j--;
                 if (i <= j)
                 {
-                    int temp = (int)vector[i];
+                    int temp = vector[i];
                     vector[i] = vector[j];
                     vector[j] = temp;
                     i++;
                     j--;
                 }
             }
-            QuickSort(vector, left, j);
-            QuickSort(vector, i, right);
+            if (left < j) QuickSort(vector, left, j);
+            if (i < right) QuickSort(vector, i, right);
         }
 
         public int ExecuteAlgorithm(int[] vector)
         {
-            int left = (int)vector[0];
-            int right = (int)vector[vector.Length];
-            QuickSort(vector, left, right);
+            if (vector == null || vector.Length == 0) return 0;
+            QuickSort(vector, 0, vector.Length - 1);
             return 0;
         }
-
     }
+
     public class AlgorithmPolynome : AlgorithmInterface
     {
         public AlgorithmPolynome(int[] vector) { }
