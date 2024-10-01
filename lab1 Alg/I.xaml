@@ -14,11 +14,15 @@
         </Grid.RowDefinitions>
         <ScottPlot:WpfPlot x:Name="Graph" Margin="10,88,349,10" Grid.RowSpan="2" />
         <Label Content="Максимальный размер случайного числа:" HorizontalAlignment="Left" Margin="506,16,0,0" VerticalAlignment="Top"/>
+
+        <TextBox Text="{Binding ElementName=SlMaxVal, Path=Value, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" DockPanel.Dock="Right" TextAlignment="Left" HorizontalAlignment="Left" Height="26" Margin="736,41,0,0" VerticalAlignment="Top" Width="54" />
+        <TextBox Text="{Binding ElementName=SlVectorLength, Path=Value, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" DockPanel.Dock="Right" TextAlignment="Left" HorizontalAlignment="Left" Height="26" Margin="736,101,0,0" VerticalAlignment="Top" Width="54" />
+
         <Slider x:Name="SlMaxVal" Minimum="1" Maximum="1000000" HorizontalAlignment="Left" Height="26" IsSnapToTickEnabled="True" Margin="529,46,0,0" SmallChange="1" LargeChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="Количество запусков:" HorizontalAlignment="Left" Margin="564,136,0,0" VerticalAlignment="Top"/>
         <Button Content="Отрисовать" HorizontalAlignment="Left" Height="31" Margin="475,122,0,0" VerticalAlignment="Top" Width="300" Click="BtStart" Grid.Row="1"/>
         <Label Content = "Алгоритм:" HorizontalAlignment="Left" Margin="99,17,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="165,17,0,0" VerticalAlignment="Top" Width="198"  >
+        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="165,17,0,0" VerticalAlignment="Top" Width="198"   >
             <ComboBoxItem Content="Постоянная ф-я"/>
             <ComboBoxItem Content="Сумма элементов"/>
             <ComboBoxItem Content="Произведение эл-тов"/>
@@ -27,13 +31,13 @@
             <ComboBoxItem Content="Quick Sort"/>
             <ComboBoxItem Content="Tim Sort"/>
             <ComboBoxItem Content="Возведение в степень"/>
+            <ComboBoxItem Content="Сортировка слиянием"/>
+            <ComboBoxItem Content="Задача о разбиении множества"/>
         </ComboBox>
         <Label Content = "Введите через '','' или ''-'' какие запуски показать:" HorizontalAlignment="Left" Margin="486,198,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <TextBox x:Name="TbNumGraphs" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="530,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Grid.Row="1" />
         <Label Content="Длина вектора:" HorizontalAlignment="Left" Margin="580,75,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="SlVectorLength"  Minimum ="1" Maximum ="1000000" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,105,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="198"/>
-        <Label Content="{Binding ElementName=SlMaxVal, Path=Value}" HorizontalAlignment="Left" Height="26" Margin="736,41,0,0" VerticalAlignment="Top" Width="64"/>
-        <Label Content="{Binding Value, ElementName=SlVectorLength}" HorizontalAlignment="Left" Height="26" Margin="736,102,0,0" VerticalAlignment="Top" Width="64"/>
+        <Slider x:Name="SlVectorLength"  Minimum ="2" Maximum ="100000" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,105,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="198"/>
         <Button x:Name="BtClearPlot" Content="Отчистить график" HorizontalAlignment="Left" Height="31" Margin="475,167,0,0" VerticalAlignment="Top" Width="300" Click="ClearPlot" Grid.Row="1"/>
         <Slider x:Name="SlCountStart"  Minimum ="1" Maximum ="10" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,167,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="{Binding Value, ElementName=SlCountStart}" HorizontalAlignment="Left" Height="26" Margin="736,162,0,0" VerticalAlignment="Top" Width="42"/>

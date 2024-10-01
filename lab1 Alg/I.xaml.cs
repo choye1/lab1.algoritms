@@ -31,6 +31,7 @@ namespace lab1_Alg
             InitializeComponent();
             Graph.Plot.Axes.SetLimits(0, 10000);
             Graph.Plot.Axes.SetLimitsY(0, 10000);
+            SelectAlg.SelectedIndex = 0;
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
@@ -168,6 +169,12 @@ namespace lab1_Alg
 
                 case ("Возведение в степень"):
                     return new AlgorithmClassicPow(p);
+
+                case ("Сортировка Слиянием"):
+                    return new AlgorithmMerge();
+
+                case ("Задача о разбиении множества"):
+                    return new ALgorithmNumberPartitioning();
 
                 default: return null; 
 
