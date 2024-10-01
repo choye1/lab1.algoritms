@@ -58,7 +58,7 @@ namespace lab1_Alg
                 {
                     for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++)
                     {
-                        List<float> dataY = resultList[j].ToList();
+                        List<float> dataY = resultList[j-1].ToList();
                         Graph3.Plot.Add.Scatter(dataX, dataY);
                         Graph3.Refresh();
                     }
