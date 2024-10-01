@@ -2,6 +2,7 @@
 using ScottPlot;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,26 @@ namespace lab1_Alg
             Output(Slise(result),dataX);
 
         }
+
+        private void Load(object sender, RoutedEventArgs e)
+        {
+            string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
+            path += "\\launches\\Matrix.txt";
+            string[] result = File.ReadAllLines(path);
+            List<float> res = new List<float>();
+            List<float> dataX = new List<float>();
+            foreach (var item in result)
+            {
+                res.Add((float)Convert.ToDouble(item));
+
+            }
+
+            for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
+
+
+            Output(Slise(res.ToArray()), dataX);
+        }
+    
         private void Output(List<List<float>> resultList, List<float> dataX)
         {
             string[] numGraphs = TbNumGraph2.Text.Split(',');
@@ -54,7 +75,7 @@ namespace lab1_Alg
                 {
                     for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++)
                     {
-                        List<float> dataY = resultList[j].ToList();
+                        List<float> dataY = resultList[j-1].ToList();
                         Graph2.Plot.Add.Scatter(dataX, dataY);
                         Graph2.Refresh();
                     }
