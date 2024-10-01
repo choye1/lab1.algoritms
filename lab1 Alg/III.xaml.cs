@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 
 namespace lab1_Alg
@@ -31,7 +32,27 @@ namespace lab1_Alg
         private void ClearPlot(object sender, RoutedEventArgs e)
         {
             Graph3.Plot.Clear();
+            Graph3.Refresh();
 
+        }
+
+        private void Load(object sender, RoutedEventArgs e)
+        {
+            string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
+            path += "\\launches\\Dextra.txt";
+            string[] result = File.ReadAllLines(path);
+            List<float> res = new List<float>();
+            List<float> dataX = new List<float>();
+            foreach (var item in result)
+            {
+                res.Add((float)Convert.ToDouble(item));
+
+            }
+
+            for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
+
+
+            Output(Slise(res.ToArray()), dataX);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
