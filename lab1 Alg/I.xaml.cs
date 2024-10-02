@@ -48,7 +48,7 @@ namespace lab1_Alg
             double[] yData = y.ToArray();
             List<float> floats = new List<float>();
 
-            foreach (float i in dataX) 
+            foreach (float i in dataY) 
             { 
                 var spline = Interpolate.CubicSpline(xData, yData);
                 double interpolatedValue = spline.Interpolate(i);
@@ -124,7 +124,12 @@ namespace lab1_Alg
                 else
                 {
                     List<float> dataY = resultList[int.Parse(i)-1].ToList();
-                    Graph.Plot.Add.Scatter(dataX, dataY);
+                    var gr = Graph.Plot.Add.Scatter(dataX, dataY);
+                    if (fl)
+                    {
+                        gr.MarkerSize = 10;
+                        
+                    }
                     Graph.Refresh();
 
                 }

@@ -52,7 +52,7 @@ namespace lab1_Alg
             for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
 
 
-            Output(Slise(res.ToArray()), dataX);
+            Output(Slise(res.ToArray()), dataX, false);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -68,9 +68,9 @@ namespace lab1_Alg
             GraphTest graphTest = new GraphTest(a,b,c);
             float[] result = graphTest.StartAlgorithm();
             for (int i = 0; i <= result.Length; i++) { dataX.Add(i); }
-            Output(Slise(result), dataX);
+            Output(Slise(result), dataX, false);
         }
-        private void Output(List<List<float>> resultList, List<float> dataX)
+        private void Output(List<List<float>> resultList, List<float> dataX, bool fl)
         {
             string[] numGraphs = TbNumGraph2.Text.Split(',');
             foreach (var i in numGraphs)
@@ -88,8 +88,15 @@ namespace lab1_Alg
                 else
                 {
                     List<float> dataY = resultList[int.Parse(i)-1].ToList();
-                    Graph3.Plot.Add.Scatter(dataX, dataY);
+                    var gr = Graph3.Plot.Add.Scatter(dataX, dataY);
+                    
+                    if (fl)
+                    {
+                        gr.MarkerSize = 10;
+
+                    }
                     Graph3.Refresh();
+
 
                 }
             }

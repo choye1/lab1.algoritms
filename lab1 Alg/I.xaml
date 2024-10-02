@@ -48,6 +48,6 @@
         <TextBox x:Name="TbPow" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="530,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Grid.Row="1" />
         <Label Content = "Степень (для алгоритмов возведения в степень) " HorizontalAlignment="Left" Margin="489,59,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         <CheckBox x:Name="CbLoad" Content="Загрузить сохранение" HorizontalAlignment="Left" Height="21" Margin="107,51,0,0" VerticalAlignment="Top" Width="157" />
-        <CheckBox x:Name="CbAprox" Content="Загрузить апроксимацию" HorizontalAlignment="Left" Height="21" Margin="288,51,0,0" VerticalAlignment="Top" Width="157" />
+        <CheckBox x:Name="CbAprox" Content="Загрузить апроксимацию" HorizontalAlignment="Left" Height="21" Margin="288,51,0,0" VerticalAlignment="Top" Width="163" />
     </Grid>
 </Window>

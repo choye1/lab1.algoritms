@@ -1,4 +1,5 @@
-﻿using MatrixEntities;
+﻿using MathNet.Numerics;
+using MatrixEntities;
 using ScottPlot;
 using System;
 using System.Collections.Generic;
@@ -14,20 +15,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
- 
+using MathNet.Numerics.Interpolation;
+
 
 namespace lab1_Alg
 {
     /// <summary>
     /// Логика взаимодействия для II.xaml
     /// </summary>
-    public partial class II : Window
+    public partial class II : System.Windows.Window
     {
         public II()
         {
             InitializeComponent();
         }
 
+        
         private void ClearPlot(object sender, RoutedEventArgs e)
         {
             Graph2.Plot.Clear();
@@ -43,7 +46,9 @@ namespace lab1_Alg
             MatrixTest matrixTest = new MatrixTest(a, b, c);
             float[] result = matrixTest.StartAlgorithm();
             for (int i = 0; i<=result.Length; i++) { dataX.Add(i) ; }
-            Output(Slise(result),dataX);
+            
+            Output(Slise(result),dataX,false);
+            
 
         }
 
@@ -63,10 +68,10 @@ namespace lab1_Alg
             for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
 
 
-            Output(Slise(res.ToArray()), dataX);
+            Output(Slise(res.ToArray()), dataX,false);
         }
     
-        private void Output(List<List<float>> resultList, List<float> dataX)
+        private void Output(List<List<float>> resultList, List<float> dataX,bool fl)
         {
             string[] numGraphs = TbNumGraph2.Text.Split(',');
             foreach (var i in numGraphs)
@@ -76,7 +81,11 @@ namespace lab1_Alg
                     for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++)
                     {
                         List<float> dataY = resultList[j-1].ToList();
-                        Graph2.Plot.Add.Scatter(dataX, dataY);
+                        var gr = Graph2.Plot.Add.Scatter(dataX, dataY);
+                        if (fl)
+                        {
+                            gr.MarkerSize = 1000;
+                        }
                         Graph2.Refresh();
                     }
                 }
