@@ -188,10 +188,10 @@ namespace lab1_Alg
                 case ("Tim Sort"):
                     return new AlgorithmTimSort(); //вот тут что то не то, он должен принимать вектор, а он отказывается
 
-                case ("Quick Pow"):
+                case ("Quick pow"):
                     return new AlgorithmQuickPow(p);
 
-                case ("Quick Pow2"):
+                case ("Quick pow 2"):
                     return new AlgorithmQuickPow2(p);
 
                 case ("Rec Pow"):

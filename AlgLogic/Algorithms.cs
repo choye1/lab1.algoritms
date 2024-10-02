@@ -101,7 +101,7 @@ namespace AlgLogic
 
     public class AlgorithmPolynome : AlgorithmInterface
     {
-        public AlgorithmPolynome(int[] vector) { }
+        public AlgorithmPolynome() { }
 
         public void CalculatePolynome(int[] vector)
         {
