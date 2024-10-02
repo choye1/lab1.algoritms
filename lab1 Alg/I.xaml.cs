@@ -184,6 +184,8 @@ namespace lab1_Alg
                 case ("Classic Pow"):
                     return new AlgorithmClassicPow(p);
 
+                case ("Полином"):
+                    return new AlgorithmPolynome();
 
                 case ("Сортировка слиянием"):
                     return new AlgorithmMerge();
