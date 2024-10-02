@@ -27,7 +27,7 @@
             <ComboBoxItem Content="Сумма элементов"/>
             <ComboBoxItem Content="Произведение эл-тов"/>
             <ComboBoxItem Content="Метод Горнера"/>
-            <ComboBoxItem Content="Полином"/>
+            <ComboBoxItem Content="Полином"/> 
             <ComboBoxItem Content="Bubble Sort"/>
             <ComboBoxItem Content="Quick Sort"/>
             <ComboBoxItem Content="Tim Sort"/>
