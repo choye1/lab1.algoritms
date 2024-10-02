@@ -16,15 +16,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AlgLogic;
+using MathNet.Numerics;
 using ScottPlot;
 using static AlgLogic.AlgorithmClassicPow;
 
 
 
-//double[] xData = { /* ваши данные по оси X */ };
-//double[] yData = { /* ваши данные по оси Y */ };
 
-//double[] coefficients = Fit.Polynomial(xData, yData, 1);
 
 
 namespace lab1_Alg
@@ -37,6 +35,20 @@ namespace lab1_Alg
             Graph.Plot.Axes.SetLimits(0, 10000);
             Graph.Plot.Axes.SetLimitsY(0, 1);
             SelectAlg.SelectedIndex = 0;
+        }
+
+        private void Approximation(List<float> dataX, float[] dataY)
+        {
+            List<double> x = new List<double>();
+            List<double> y = new List<double>();
+            foreach(float i in  dataX) { x.Add(i); }
+            foreach(float i in dataY) {  y.Add(i); }
+            double[] xData = x.ToArray();
+            double[] yData = y.ToArray();
+            double[] coefficients = Fit.Polynomial(xData, yData, 1);
+            List<float> floats = new List<float>();
+            foreach(double i in coefficients) { floats.Add((float) i); }
+            Output(Slise(floats.ToArray()), dataX);
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
@@ -68,6 +80,10 @@ namespace lab1_Alg
                     Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
                     float[] result = test.StartAlgorithm();
                     Output(Slise(result), dataX);
+                    if (CbAprox.IsChecked == true)
+                    {
+                        Approximation(dataX, result);
+                    }
                 }
               
             }
@@ -172,18 +188,20 @@ namespace lab1_Alg
                 case ("Tim Sort"):
                     return new AlgorithmTimSort(); //вот тут что то не то, он должен принимать вектор, а он отказывается
 
-                case ("Quick Pow"):
+                case ("Quick pow"):
                     return new AlgorithmQuickPow(p);
 
-                case ("Quick Pow2"):
+                case ("Quick pow 2"):
                     return new AlgorithmQuickPow2(p);
 
-                case ("Rec Pow"):
+                case ("Rec pow"):
                     return new AlgorithmRecPow(p);
 
-                case ("Classic Pow"):
+                case ("Classic pow"):
                     return new AlgorithmClassicPow(p);
 
+                case ("Полином"):
+                    return new AlgorithmPolynome();
 
                 case ("Сортировка слиянием"):
                     return new AlgorithmMerge();

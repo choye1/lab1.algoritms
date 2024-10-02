@@ -21,12 +21,13 @@
         <Slider x:Name="SlMaxVal" Minimum="1" Maximum="1000000" HorizontalAlignment="Left" Height="26" IsSnapToTickEnabled="True" Margin="529,46,0,0" SmallChange="1" LargeChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
         <Label Content="Количество запусков:" HorizontalAlignment="Left" Margin="564,136,0,0" VerticalAlignment="Top"/>
         <Button Content="Отрисовать" HorizontalAlignment="Left" Height="31" Margin="475,122,0,0" VerticalAlignment="Top" Width="300" Click="BtStart" Grid.Row="1"/>
-        <Label Content = "Алгоритм:" HorizontalAlignment="Left" Margin="99,17,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="165,17,0,0" VerticalAlignment="Top" Width="198"   >
+        <Label Content = "Алгоритм:" HorizontalAlignment="Left" Margin="132,17,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="198,17,0,0" VerticalAlignment="Top" Width="198"   >
             <ComboBoxItem Content="Постоянная ф-я"/>
             <ComboBoxItem Content="Сумма элементов"/>
             <ComboBoxItem Content="Произведение эл-тов"/>
             <ComboBoxItem Content="Метод Горнера"/>
+            <ComboBoxItem Content="Полином"/> >
             <ComboBoxItem Content="Bubble Sort"/>
             <ComboBoxItem Content="Quick Sort"/>
             <ComboBoxItem Content="Tim Sort"/>
@@ -46,6 +47,7 @@
         <Label Content="{Binding Value, ElementName=SlCountStart}" HorizontalAlignment="Left" Height="26" Margin="736,162,0,0" VerticalAlignment="Top" Width="42"/>
         <TextBox x:Name="TbPow" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="530,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Grid.Row="1" />
         <Label Content = "Степень (для алгоритмов возведения в степень) " HorizontalAlignment="Left" Margin="489,59,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <CheckBox x:Name="CbLoad" Content="Загрузить сохранение" HorizontalAlignment="Left" Height="21" Margin="186,51,0,0" VerticalAlignment="Top" Width="157" />
+        <CheckBox x:Name="CbLoad" Content="Загрузить сохранение" HorizontalAlignment="Left" Height="21" Margin="107,51,0,0" VerticalAlignment="Top" Width="157" />
+        <CheckBox x:Name="CbAprox" Content="Загрузить апроксимацию" HorizontalAlignment="Left" Height="21" Margin="288,51,0,0" VerticalAlignment="Top" Width="157" />
     </Grid>
 </Window>
