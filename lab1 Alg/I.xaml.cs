@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AlgLogic;
 using MathNet.Numerics;
+using MathNet.Numerics.Interpolation;
 using ScottPlot;
 using static AlgLogic.AlgorithmClassicPow;
 
