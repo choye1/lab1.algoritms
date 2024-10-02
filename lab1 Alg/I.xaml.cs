@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 using AlgLogic;
 using ScottPlot;
 using static AlgLogic.AlgorithmClassicPow;
-using MathNet.Numerics;
+
 
 
 //double[] xData = { /* ваши данные по оси X */ };
@@ -35,7 +35,7 @@ namespace lab1_Alg
         {
             InitializeComponent();
             Graph.Plot.Axes.SetLimits(0, 10000);
-            Graph.Plot.Axes.SetLimitsY(0, 10000);
+            Graph.Plot.Axes.SetLimitsY(0, 1);
             SelectAlg.SelectedIndex = 0;
         }
 
