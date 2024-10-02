@@ -205,10 +205,10 @@ namespace lab1_Alg
                 case ("Quick pow 2"):
                     return new AlgorithmQuickPow2(p);
 
-                case ("Rec Pow"):
+                case ("Rec pow"):
                     return new AlgorithmRecPow(p);
 
-                case ("Classic Pow"):
+                case ("Classic pow"):
                     return new AlgorithmClassicPow(p);
 
                 case ("Полином"):
