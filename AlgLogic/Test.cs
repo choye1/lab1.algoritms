@@ -38,7 +38,7 @@ namespace AlgLogic
                 points.Add(-1); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
 
-            //WriteFile(points, algorithmName);
+            WriteFile(points, algorithmName);
 
             return points.ToArray();
         }
