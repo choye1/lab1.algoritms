@@ -25,7 +25,7 @@ namespace AlgLogic
         {
             List<float> points = new List<float>();
             float algorithmExecutionTime;
-            string algorithmName = "Quick pow 2"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
+            string algorithmName = "Задача о разбиении множества"; // надо будет потом сделать так чтобы при вызове теста для опр алгоса записывалось имя алгоса
             for (int i = 0; i < numberOfStarts; i++)
             {
                 for (int j = 1; j < vectorLength; j++)
@@ -38,7 +38,7 @@ namespace AlgLogic
                 points.Add(-1); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
 
-            WriteFile(points, algorithmName);
+            //WriteFile(points, algorithmName);
 
             return points.ToArray();
         }
