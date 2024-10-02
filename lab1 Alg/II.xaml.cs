@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MathNet.Numerics.Interpolation;
+using DijkstraAlgorithm;
 
 
 namespace lab1_Alg
@@ -28,9 +29,12 @@ namespace lab1_Alg
         public II()
         {
             InitializeComponent();
+            Graph2.Plot.Axes.SetLimits(0, 1000);
+            Graph2.Plot.Axes.SetLimitsY(0, 3000);
+
         }
 
-        
+
         private void ClearPlot(object sender, RoutedEventArgs e)
         {
             Graph2.Plot.Clear();

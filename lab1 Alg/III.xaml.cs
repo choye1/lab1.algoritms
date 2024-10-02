@@ -24,9 +24,8 @@ namespace lab1_Alg
         public III()
         {
             InitializeComponent();
-            List<int> dataX = new List<int>();
-            List<int> dataY = new List<int>();
-            Graph3.Plot.Add.Scatter(dataX, dataY);
+            Graph3.Plot.Axes.SetLimits(0, 10000);
+            Graph3.Plot.Axes.SetLimitsY(0, 1000);
         }
 
         private void ClearPlot(object sender, RoutedEventArgs e)
