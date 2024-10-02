@@ -41,14 +41,20 @@ namespace lab1_Alg
         {
             List<double> x = new List<double>();
             List<double> y = new List<double>();
-            foreach(float i in  dataX) { x.Add(i); }
-            foreach(float i in dataY) {  y.Add(i); }
+            foreach (float i in dataX) { x.Add(i); }
+            foreach (float i in dataY) { y.Add(i); }
             double[] xData = x.ToArray();
             double[] yData = y.ToArray();
-            double[] coefficients = Fit.Polynomial(xData, yData, 1);
             List<float> floats = new List<float>();
-            foreach(double i in coefficients) { floats.Add((float) i); }
-            Output(Slise(floats.ToArray()), dataX);
+
+            foreach (float i in dataX) 
+            { 
+                var spline = Interpolate.CubicSpline(xData, yData);
+                double interpolatedValue = spline.Interpolate(i);
+                floats.Add((float)interpolatedValue);
+            }
+
+            Output(Slise(floats.ToArray()), dataX, true);
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
@@ -79,7 +85,7 @@ namespace lab1_Alg
                 {
                     Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
                     float[] result = test.StartAlgorithm();
-                    Output(Slise(result), dataX);
+                    Output(Slise(result), dataX, false);
                     if (CbAprox.IsChecked == true)
                     {
                         Approximation(dataX, result);
@@ -94,7 +100,7 @@ namespace lab1_Alg
             }
         }
 
-        private void Output(List<List<float>> resultList, List<float> dataX)
+        private void Output(List<List<float>> resultList, List<float> dataX, bool fl)
         { 
             string[] numGraphs = TbNumGraphs.Text.Split(',');
             foreach(var i in numGraphs)
@@ -104,7 +110,12 @@ namespace lab1_Alg
                     for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++) 
                     {
                         List<float> dataY = resultList[j-1].ToList();
-                        Graph.Plot.Add.Scatter(dataX, dataY);
+                        var gr = Graph.Plot.Add.Scatter(dataX, dataY);
+                        if(fl)
+                        {
+                            gr.MarkerSize = 1000;
+                        }
+
                         Graph.Refresh();
                     }
                 }
@@ -157,7 +168,7 @@ namespace lab1_Alg
             for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
 
 
-            Output(Slise(res.ToArray()),dataX);
+            Output(Slise(res.ToArray()),dataX, false);
 
 
         }
