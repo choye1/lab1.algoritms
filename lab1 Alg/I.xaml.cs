@@ -86,7 +86,11 @@ namespace lab1_Alg
                 {
                     Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
                     float[] result = test.StartAlgorithm();
-                    Output(Slise(result), dataX, false);
+                    Average(Slise(result), dataX);
+                    //Output(Slise(result), dataX, false);
+
+                    //test.WriteFile(result.ToList(),"");  // запись в файл
+
                     if (CbAprox.IsChecked == true)
                     {
                         Approximation(dataX, result);
@@ -99,6 +103,33 @@ namespace lab1_Alg
             {
                 throw;
             }
+        }
+
+        private List<float> Average(List<List<float>> resultList, List<float> dataX)
+        {
+            int len = resultList[0].Count-1;
+            int k = resultList.Count - 1;
+            List<float> result = new List<float>() {  };
+
+            for (int j = 0; j < len; j++)
+            {
+                float d = resultList[0][j];
+                for (int i = 1; i <= k; i++)
+                {
+                    d += resultList[i][j];
+                    d /= 2;
+                }
+
+                result.Add(d);
+            }
+
+
+
+            var cal = new ScottPlot.Color(255, 255, 255, 255);
+            var gr = Graph.Plot.Add.Scatter(dataX, result);
+            gr.LineColor = cal;
+            Graph.Refresh();
+            return result;
         }
 
         private void Output(List<List<float>> resultList, List<float> dataX, bool fl)
@@ -154,7 +185,8 @@ namespace lab1_Alg
                     resultList[i].Add(item);
                 }
             }
-
+            
+            resultList.RemoveAt(resultList.Count - 1);
             return resultList;
         }
 
@@ -185,45 +217,73 @@ namespace lab1_Alg
             switch (nameAlg)
             {
                 case ("Постоянная ф-я"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
                     return new Algorithm1();
                  
                 case ("Сумма элементов"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
                     return new Algorithm2();
 
-                case ("Произведение эл-тов"): 
+                case ("Произведение эл-тов"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
                     return new Algorithm3();
 
                 case ("Метод Горнера"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
                     return new AlgorithmPolynomeHorner();
 
                 case ("Bubble Sort"):
+                    Graph.Plot.Axes.SetLimits(-400, 7600, -50, 800);
+                    Graph.Refresh();
                     return new AlgorithmBubbleSort();
 
                 case ("Quick Sort"):
+                    Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
+                    Graph.Refresh();
                     return new AlgorithmQuickSort();
 
                 case ("Tim Sort"):
-                    return new AlgorithmTimSort(); //вот тут что то не то, он должен принимать вектор, а он отказывается
+                    Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
+                    Graph.Refresh();
+                    return new AlgorithmTimSort(); 
 
                 case ("Quick pow"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
                     return new AlgorithmQuickPow(p);
 
                 case ("Quick pow 2"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
                     return new AlgorithmQuickPow2(p);
 
                 case ("Rec pow"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
                     return new AlgorithmRecPow(p);
 
                 case ("Classic pow"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
                     return new AlgorithmClassicPow(p);
 
                 case ("Полином"):
+                    Graph.Plot.Axes.SetLimits(-500, 20000, -20, 300);
+                    Graph.Refresh();
                     return new AlgorithmPolynome();
 
                 case ("Сортировка слиянием"):
+                    Graph.Plot.Axes.SetLimits(-400, 16800, -8, 260);
+                    Graph.Refresh();
                     return new AlgorithmMerge();
 
                 case ("Задача о разбиении множества"):
+                    Graph.Plot.Axes.SetLimits(-10, 550, -1000, 30000);
+                    Graph.Refresh();
                     return new ALgorithmNumberPartitioning();
 
 

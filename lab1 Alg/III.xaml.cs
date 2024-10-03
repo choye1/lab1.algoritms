@@ -24,8 +24,8 @@ namespace lab1_Alg
         public III()
         {
             InitializeComponent();
-            Graph3.Plot.Axes.SetLimits(0, 10000);
-            Graph3.Plot.Axes.SetLimitsY(0, 1000);
+            Graph3.Plot.Axes.SetLimits(-40, 2500);
+            Graph3.Plot.Axes.SetLimitsY(-1, 40);
         }
 
         private void ClearPlot(object sender, RoutedEventArgs e)

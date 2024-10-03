@@ -38,12 +38,11 @@ namespace AlgLogic
                 points.Add(-1); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
             }
 
-           // WriteFile(points, algorithmName);
 
             return points.ToArray();
         }
 
-        private void WriteFile(List<float> points,string algorithmName) 
+        public void WriteFile(List<float> points,string algorithmName) 
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
             СheckingExistenceDirectory(path);

@@ -29,8 +29,8 @@ namespace lab1_Alg
         public II()
         {
             InitializeComponent();
-            Graph2.Plot.Axes.SetLimits(0, 1000);
-            Graph2.Plot.Axes.SetLimitsY(0, 3000);
+            Graph2.Plot.Axes.SetLimits(-20, 300);
+            Graph2.Plot.Axes.SetLimitsY(-500, 12000);
 
         }
 
