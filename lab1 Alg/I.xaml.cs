@@ -55,7 +55,7 @@ namespace lab1_Alg
                 floats.Add((float)interpolatedValue);
             }
 
-            Output(Slise(floats.ToArray()), dataX, true);
+            //Output(Slise(floats.ToArray()), dataX, true);
         }
 
         private void BtStart(object sender, RoutedEventArgs e)
@@ -86,7 +86,7 @@ namespace lab1_Alg
                 {
                     Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
                     float[] result = test.StartAlgorithm();
-                    Average(Slise(result), dataX);
+                    OutAverage(Slise(result), dataX);
                     //Output(Slise(result), dataX, false);
 
                     //test.WriteFile(result.ToList(),"");  // запись в файл
@@ -105,7 +105,7 @@ namespace lab1_Alg
             }
         }
 
-        private List<float> Average(List<List<float>> resultList, List<float> dataX)
+        private List<float> OutAverage(List<List<float>> resultList, List<float> dataX)
         {
             int len = resultList[0].Count-1;
             int k = resultList.Count - 1;
@@ -132,40 +132,40 @@ namespace lab1_Alg
             return result;
         }
 
-        private void Output(List<List<float>> resultList, List<float> dataX, bool fl)
-        { 
-            string[] numGraphs = TbNumGraphs.Text.Split(',');
-            foreach(var i in numGraphs)
-            {
-                if(i.Split('-').Length == 2)
-                {
-                    for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++) 
-                    {
-                        List<float> dataY = resultList[j-1].ToList();
-                        var gr = Graph.Plot.Add.Scatter(dataX, dataY);
-                        if(fl)
-                        {
-                            gr.MarkerSize = 1000;
-                        }
+        //private void Output(List<List<float>> resultList, List<float> dataX, bool fl)
+        //{ 
+        //    string[] numGraphs = TbNumGraphs.Text.Split(',');
+        //    foreach(var i in numGraphs)
+        //    {
+        //        if(i.Split('-').Length == 2)
+        //        {
+        //            for (int j = Convert.ToInt32(i.Split('-')[0]); j <= Convert.ToInt32(i.Split("-")[1]); j++) 
+        //            {
+        //                List<float> dataY = resultList[j-1].ToList();
+        //                var gr = Graph.Plot.Add.Scatter(dataX, dataY);
+        //                if(fl)
+        //                {
+        //                    gr.MarkerSize = 1000;
+        //                }
 
-                        Graph.Refresh();
-                    }
-                }
+        //                Graph.Refresh();
+        //            }
+        //        }
 
-                else
-                {
-                    List<float> dataY = resultList[int.Parse(i)-1].ToList();
-                    var gr = Graph.Plot.Add.Scatter(dataX, dataY);
-                    if (fl)
-                    {
-                        gr.MarkerSize = 10;
+        //        else
+        //        {
+        //            List<float> dataY = resultList[int.Parse(i)-1].ToList();
+        //            var gr = Graph.Plot.Add.Scatter(dataX, dataY);
+        //            if (fl)
+        //            {
+        //                gr.MarkerSize = 10;
                         
-                    }
-                    Graph.Refresh();
+        //            }
+        //            Graph.Refresh();
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         private List<List<float>> Slise(float[] result) 
         {
@@ -205,8 +205,8 @@ namespace lab1_Alg
 
             for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
 
-
-            Output(Slise(res.ToArray()),dataX, false);
+            OutAverage(Slise(res.ToArray()), dataX);
+            //Output(Slise(res.ToArray()),dataX, false);
 
 
         }
