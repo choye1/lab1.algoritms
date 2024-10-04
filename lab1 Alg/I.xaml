@@ -22,7 +22,7 @@
         <Label Content="Количество запусков:" HorizontalAlignment="Left" Margin="564,136,0,0" VerticalAlignment="Top"/>
         <Button Content="Отрисовать" HorizontalAlignment="Left" Height="31" Margin="475,122,0,0" VerticalAlignment="Top" Width="300" Click="BtStart" Grid.Row="1"/>
         <Label Content = "Алгоритм:" HorizontalAlignment="Left" Margin="132,17,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="198,17,0,0" VerticalAlignment="Top" Width="198"   >
+        <ComboBox x:Name="SelectAlg" HorizontalAlignment="Left" Height="26" Margin="198,17,0,0" VerticalAlignment="Top" Width="198" SelectionChanged="SelectAlg_SelectionChanged"   >
             <ComboBoxItem Content="Постоянная ф-я"/>
             <ComboBoxItem Content="Сумма элементов"/>
             <ComboBoxItem Content="Произведение эл-тов"/>

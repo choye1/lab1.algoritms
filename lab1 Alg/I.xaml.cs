@@ -48,8 +48,8 @@ namespace lab1_Alg
             double[] yData = y.ToArray();
             List<float> floats = new List<float>();
 
-            foreach (float i in dataY) 
-            { 
+            foreach (float i in dataY)
+            {
                 var spline = Interpolate.CubicSpline(xData, yData);
                 double interpolatedValue = spline.Interpolate(i);
                 floats.Add((float)interpolatedValue);
@@ -62,7 +62,7 @@ namespace lab1_Alg
         {
             List<float> dataX = new List<float>();
             for (int i = 0; i < (int)SlVectorLength.Value; i++) { dataX.Add(i); }
-            
+
 
             try
             {
@@ -70,7 +70,7 @@ namespace lab1_Alg
                 int maxValRandNum = (int)SlMaxVal.Value;
                 int countStart = (int)SlCountStart.Value;
                 int vectorLength = (int)SlVectorLength.Value;
-                
+
 
                 ComboBoxItem typeItem = (ComboBoxItem)SelectAlg.SelectedItem;
                 string nameAlg = typeItem.Content.ToString();
@@ -96,7 +96,7 @@ namespace lab1_Alg
                         Approximation(dataX, result);
                     }
                 }
-              
+
             }
 
             catch
@@ -107,9 +107,9 @@ namespace lab1_Alg
 
         private List<float> OutAverage(List<List<float>> resultList, List<float> dataX)
         {
-            int len = resultList[0].Count-1;
+            int len = resultList[0].Count - 1;
             int k = resultList.Count - 1;
-            List<float> result = new List<float>() {  };
+            List<float> result = new List<float>() { };
 
             for (int j = 0; j < len; j++)
             {
@@ -159,7 +159,7 @@ namespace lab1_Alg
         //            if (fl)
         //            {
         //                gr.MarkerSize = 10;
-                        
+
         //            }
         //            Graph.Refresh();
 
@@ -167,12 +167,12 @@ namespace lab1_Alg
         //    }
         //}
 
-        private List<List<float>> Slise(float[] result) 
+        private List<List<float>> Slise(float[] result)
         {
             int i = 0;
-            List <List<float>> resultList  = new List<List<float>>() { };
+            List<List<float>> resultList = new List<List<float>>() { };
             resultList.Add(new List<float>());
-            foreach (var item in result) 
+            foreach (var item in result)
             {
                 if (item == -1)
                 {
@@ -185,7 +185,7 @@ namespace lab1_Alg
                     resultList[i].Add(item);
                 }
             }
-            
+
             resultList.RemoveAt(resultList.Count - 1);
             return resultList;
         }
@@ -200,7 +200,7 @@ namespace lab1_Alg
             foreach (var item in result)
             {
                 res.Add((float)Convert.ToDouble(item));
-                
+
             }
 
             for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
@@ -217,77 +217,49 @@ namespace lab1_Alg
             switch (nameAlg)
             {
                 case ("Постоянная ф-я"):
-                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
-                    Graph.Refresh();
                     return new Algorithm1();
-                 
+
                 case ("Сумма элементов"):
-                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
-                    Graph.Refresh();
                     return new Algorithm2();
 
                 case ("Произведение эл-тов"):
-                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
-                    Graph.Refresh();
                     return new Algorithm3();
 
                 case ("Метод Горнера"):
-                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
-                    Graph.Refresh();
                     return new AlgorithmPolynomeHorner();
 
                 case ("Bubble Sort"):
-                    Graph.Plot.Axes.SetLimits(-400, 7600, -50, 800);
-                    Graph.Refresh();
                     return new AlgorithmBubbleSort();
 
                 case ("Quick Sort"):
-                    Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
-                    Graph.Refresh();
                     return new AlgorithmQuickSort();
 
                 case ("Tim Sort"):
-                    Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
-                    Graph.Refresh();
-                    return new AlgorithmTimSort(); 
+                    return new AlgorithmTimSort();
 
                 case ("Quick pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
-                    Graph.Refresh();
                     return new AlgorithmQuickPow(p);
 
                 case ("Quick pow 2"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
-                    Graph.Refresh();
                     return new AlgorithmQuickPow2(p);
 
                 case ("Rec pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
-                    Graph.Refresh();
                     return new AlgorithmRecPow(p);
 
                 case ("Classic pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
-                    Graph.Refresh();
                     return new AlgorithmClassicPow(p);
 
                 case ("Полином"):
-                    Graph.Plot.Axes.SetLimits(-500, 20000, -20, 300);
-                    Graph.Refresh();
                     return new AlgorithmPolynome();
 
                 case ("Сортировка слиянием"):
-                    Graph.Plot.Axes.SetLimits(-400, 16800, -8, 260);
-                    Graph.Refresh();
                     return new AlgorithmMerge();
 
                 case ("Задача о разбиении множества"):
-                    Graph.Plot.Axes.SetLimits(-10, 550, -1000, 30000);
-                    Graph.Refresh();
                     return new ALgorithmNumberPartitioning();
 
 
-                default: return null; 
+                default: return null;
 
 
             }
@@ -301,6 +273,103 @@ namespace lab1_Alg
 
         }
 
-        
+        private void SelectAlg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem typeItem = (ComboBoxItem)SelectAlg.SelectedItem;
+            string nameAlg = typeItem.Content.ToString();
+
+            switch (nameAlg)
+            {
+                case ("Постоянная ф-я"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Сумма элементов"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Произведение эл-тов"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Метод Горнера"):
+                    Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Bubble Sort"):
+                    Graph.Plot.Axes.SetLimits(-400, 7600, -50, 800);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 1000;
+
+                    break;
+
+                case ("Quick Sort"):
+                    Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 1000;
+
+                    break;
+
+                case ("Tim Sort"):
+                    Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 1000;
+                    break;
+
+                case ("Quick pow"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Quick pow 2"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Rec pow"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Classic pow"):
+                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Полином"):
+                    Graph.Plot.Axes.SetLimits(-500, 20000, -20, 300);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 15000;
+                    break;
+
+                case ("Сортировка слиянием"):
+                    Graph.Plot.Axes.SetLimits(-400, 16800, -8, 260);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 1000;
+                    break;
+
+                case ("Задача о разбиении множества"):
+                    Graph.Plot.Axes.SetLimits(-10, 550, -1000, 30000);
+                    Graph.Refresh();
+                    SlVectorLength.Maximum = 1500;
+                    break;
+
+
+                default: return;
+
+            }
+        }
     }
 }
