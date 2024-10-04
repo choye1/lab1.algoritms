@@ -142,39 +142,50 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public void QuickPow(int x, int n)
+        public int QuickPow(int x, int n)
         {
+            int count = 0;
             int c = x;
             int k = n;
             int f;
+            count += 3;
 
             if (k % 2 == 1)
             {
                 f = c;
+                count += 1;
             }
             else
             {
                 f = 1;
+                count += 1;
             }
 
             while (k != 0)
             {
+                count += 1;
                 k = k / 2;
                 c = c * c;
+
+                count += 2;
 
                 if (k % 2 == 1)
                 {
                     f = f * c;
+                    count += 2;
                 }
             }
+            count++;
+            return count;
         }
         public int ExecuteAlgorithm(int[] vector)
         {
+            int c = 0;
             for (int x = 0; x < vector.Length; x++)
             {
-                QuickPow(x, n);
+                c += QuickPow(x, n);
             }
-            return 0;
+            return c;
         }
     }
 
@@ -185,36 +196,46 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public void QuickPow2(int x, int n)
+        public int QuickPow2(int x, int n)
         {
+            int count = 0;
             int c = x;
             int f = 1;
             int k = n;
+
+            count += 3;
+
             while (k != 0)
             {
+                count += 1;
                 if (k % 2 == 0)
                 {
                     c = c * c;
                     k = k % 2;
+                    count += 3;
                 }
 
                 else
                 {
                     f = f * c;
                     k = k - 1;
+                    count += 3;
                 }
 
             }
+            count++;
+            return count;
 
         }
 
         public int ExecuteAlgorithm(int[] vector)
         {
+            int c = 0;
             for (int x = 0; x < vector.Length; x++)
             {
-                QuickPow2(x, n);
+                c += QuickPow2(x, n);
             }
-            return 1;
+            return c;
         }
     }
 
@@ -225,41 +246,45 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public int RecPow(int x, int n)
+        public int RecPow(int x, int n, ref int c)
         {
+            c += 1;
             int f;
             if (n == 0)
             {
                 f = 1;
+                c += 2;
             }
-
             else
             {
-                f = RecPow(x, n / 2);
+                c += 1;
+                f = RecPow(x, n / 2, ref c);
                 if (n % 2 == 1)
                 {
                     f = f * f * x;
+                    c += 3;
                 }
-
                 else
                 {
                     f = f * f;
+                    c += 2;
                 }
-
             }
-
+            c += 1;
             return f;
         }
 
         public int ExecuteAlgorithm(int[] vector)
         {
+            int c = 0;
             for (int x = 0; x < vector.Length; x++)
             {
-                RecPow(x, n);   
+                RecPow(x, n, ref c);
             }
 
-            return 1;
+            return c;
         }
+
 
     }
 
@@ -270,26 +295,32 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public void ClassicPow(int x, int n)
+        public int ClassicPow(int x, int n)
         {
+            int c = 0;
             int f = 1;
             int k = 0;
+            c += 2;
             while (k < n)
             {
                 f = f * x;
                 k = k + 1;
+                c += 4;
             }
+            c += 1;
+            return c;
 
         }
 
         public int ExecuteAlgorithm(int[] vector)
         {
+            int c = 0;
             for (int x = 0; x < vector.Length; x++)
             {
-                ClassicPow(x, n);
+                c += ClassicPow(x, n);
             }
 
-            return 1;
+            return c;
         }
 
         public class AlgorithmTimSort : AlgorithmInterface
