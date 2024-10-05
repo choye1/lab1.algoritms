@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Configuration.Assemblies;
+using System.Diagnostics;
 using System.Timers;
 
 namespace AlgLogic
@@ -12,21 +13,29 @@ namespace AlgLogic
         }
         public float CalculateTime(int[] vector)
         {
-            Stopwatch stopwatch = new Stopwatch();
+            if (Instance is AlgorithmClassicPow || Instance is AlgorithmRecPow || Instance is AlgorithmQuickPow || Instance is AlgorithmQuickPow2)
+            {
+                return Instance.ExecuteAlgorithm(vector);
+            }
 
-            // Начинаем измерение времени
-            stopwatch.Start();
+            else
+            {
+                Stopwatch stopwatch = new Stopwatch();
 
-            // Выполняем какую-то работу
-            Instance.ExecuteAlgorithm(vector);
+                // Начинаем измерение времени
+                stopwatch.Start();
 
-            // Останавливаем измерение времени
-            stopwatch.Stop();
-            TimeSpan timeSpan = stopwatch.Elapsed;
-            stopwatch.Reset();
+                // Выполняем какую-то работу
+                Instance.ExecuteAlgorithm(vector);
 
-            // Получаем время выполнения в миллисекундах
-            return (float)timeSpan.TotalMilliseconds;
+                // Останавливаем измерение времени
+                stopwatch.Stop();
+                TimeSpan timeSpan = stopwatch.Elapsed;
+                stopwatch.Reset();
+
+                // Получаем время выполнения в миллисекундах
+                return (float)timeSpan.TotalMilliseconds * 100;
+            }
         }
 
     }

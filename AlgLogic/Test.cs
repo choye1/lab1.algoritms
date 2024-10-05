@@ -32,7 +32,7 @@ namespace AlgLogic
                 {
                     Timer timer = new Timer(Instance);
                     algorithmExecutionTime = timer.CalculateTime(vector.Take(j).ToArray());
-                    points.Add(algorithmExecutionTime*100);
+                    points.Add(algorithmExecutionTime);
                 }
 
                 points.Add(-1); // Максон, смотри если ты встречаешь ноль то ты дорисовал график и надо не удаляя текущий начать рисовать следующий поверх
