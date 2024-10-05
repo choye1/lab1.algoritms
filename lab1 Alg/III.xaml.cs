@@ -26,6 +26,8 @@ namespace lab1_Alg
             InitializeComponent();
             Graph3.Plot.Axes.SetLimits(-40, 2500);
             Graph3.Plot.Axes.SetLimitsY(-1, 40);
+            Graph3.Plot.XLabel("Длина вектора");
+            Graph3.Plot.YLabel("Время мс*100");
         }
 
         private void ClearPlot(object sender, RoutedEventArgs e)

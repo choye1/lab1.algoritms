@@ -20,6 +20,7 @@ using MathNet.Numerics;
 using MathNet.Numerics.Interpolation;
 using ScottPlot;
 using static AlgLogic.AlgorithmClassicPow;
+using MathNet.Numerics.LinearAlgebra;
 
 
 
@@ -35,6 +36,8 @@ namespace lab1_Alg
             InitializeComponent();
             Graph.Plot.Axes.SetLimits(0, 10000);
             Graph.Plot.Axes.SetLimitsY(0, 1000);
+            Graph.Plot.XLabel("Длина вектора");
+            Graph.Plot.YLabel("Время мс*100");
             SelectAlg.SelectedIndex = 0;
         }
 
@@ -48,12 +51,18 @@ namespace lab1_Alg
             double[] yData = y.ToArray();
             List<float> floats = new List<float>();
 
-            foreach (float i in dataY)
+
+            // Аппроксимация данных полиномиальной функцией
+            Polynomial polynomial = new (Fit.Polynomial(xData, yData, 2));
+
+
+            // Вычисление значений аппроксимированной функции
+            foreach (double i in x)
             {
-                var spline = Interpolate.CubicSpline(xData, yData);
-                double interpolatedValue = spline.Interpolate(i);
-                floats.Add((float)interpolatedValue);
+                floats.Add((float)polynomial.Evaluate(i));
             }
+
+            OutAverage(Slise(floats.ToArray(), true), dataX);
 
             //Output(Slise(floats.ToArray()), dataX, true);
         }
@@ -190,6 +199,28 @@ namespace lab1_Alg
             return resultList;
         }
 
+        private List<List<float>> Slise(float[] result, bool fl)
+        {
+            int i = 0;
+            List<List<float>> resultList = new List<List<float>>() { };
+            resultList.Add(new List<float>());
+            foreach (var item in result)
+            {
+                if (item == -1)
+                {
+                    i++;
+                    resultList.Add(new List<float>());
+                }
+
+                else
+                {
+                    resultList[i].Add(item);
+                }
+            }
+
+            return resultList;
+        }
+
         private void Load(string name)
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
@@ -305,9 +336,9 @@ namespace lab1_Alg
                     break;
 
                 case ("Bubble Sort"):
-                    Graph.Plot.Axes.SetLimits(-400, 7600, -50, 800);
+                    Graph.Plot.Axes.SetLimits(-100, 3000, -50, 600);
                     Graph.Refresh();
-                    SlVectorLength.Maximum = 1000;
+                    SlVectorLength.Maximum = 3000;
 
                     break;
 
@@ -326,24 +357,28 @@ namespace lab1_Alg
 
                 case ("Quick pow"):
                     Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Quick pow 2"):
                     Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Rec pow"):
                     Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Classic pow"):
                     Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;

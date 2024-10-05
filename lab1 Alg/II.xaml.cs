@@ -31,6 +31,8 @@ namespace lab1_Alg
             InitializeComponent();
             Graph2.Plot.Axes.SetLimits(-20, 300);
             Graph2.Plot.Axes.SetLimitsY(-500, 12000);
+            Graph2.Plot.XLabel("Длина вектора");
+            Graph2.Plot.YLabel("Время мс*100");
 
         }
 
