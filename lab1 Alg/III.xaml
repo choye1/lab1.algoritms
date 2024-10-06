@@ -17,12 +17,11 @@
         <Label Content="Размер графа" HorizontalAlignment="Left" Margin="580,75,0,0" VerticalAlignment="Top"/>
         <Slider x:Name="SlGraphSize"  Minimum ="1" Maximum ="7000" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,105,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="198"/>
         <Slider x:Name="SlCountStart"  Minimum ="1" Maximum ="10" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Height="26" Margin="528,167,0,0" SmallChange="1"  TickFrequency="1"  VerticalAlignment="Top" Width="197"/>
-        <Label Content = "Введите через '','' или ''-'' какие запуски показать:" HorizontalAlignment="Left" Margin="486,198,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TbNumGraph2" Text = "1" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="530,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" />
         <Label Content="{Binding Value, ElementName=SlMaxVal}" HorizontalAlignment="Left" Height="26" Margin="736,41,0,0" VerticalAlignment="Top" Width="64"/>
         <Label Content="{Binding Value, ElementName=SlGraphSize}" HorizontalAlignment="Left" Height="26" Margin="736,102,0,0" VerticalAlignment="Top" Width="64"/>
         <Label Content="{Binding Value, ElementName=SlCountStart}" HorizontalAlignment="Left" Height="26" Margin="736,162,0,0" VerticalAlignment="Top" Width="42"/>
-        <Button x:Name="BtLoad" Content="Загрузить данные" HorizontalAlignment="Left" Height="31" Margin="475,386,0,0" VerticalAlignment="Top" Width="300" Click="Load"/>
+        <CheckBox x:Name="CbAprox" Content="Загрузить апроксимацию" HorizontalAlignment="Left" Height="21" Margin="545,258,0,0" VerticalAlignment="Top" Width="163" />
+        <CheckBox x:Name="CbLoad" Content="Загрузить сохранение" HorizontalAlignment="Left" Height="21" Margin="545,230,0,0" VerticalAlignment="Top" Width="163" />
 
     </Grid>
 </Window>

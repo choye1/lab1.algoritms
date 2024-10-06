@@ -78,8 +78,9 @@ namespace lab1_Alg
                     ret.Ret(CbAprox.IsChecked == true, Graph);
                     
                     //test.WriteFile(result.ToList(),"");  // запись в файл
-}
+
                 }
+            }
 
             catch
             {
@@ -245,6 +246,7 @@ namespace lab1_Alg
                     Graph.Plot.Axes.SetLimits(-10, 550, -1000, 30000);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 1500;
+                    SlMaxVal.Maximum = 1000;
                     break;
 
 
