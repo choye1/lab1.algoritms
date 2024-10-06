@@ -77,7 +77,7 @@ namespace lab1_Alg
                     ret.dataY = result.ToList();
                     ret.Ret(CbAprox.IsChecked == true, Graph);
                     
-                    //test.WriteFile(result.ToList(),"");  // запись в файл
+                   // test.WriteFile(result.ToList(),"Bubble Sort");  // запись в файл
 
                 }
             }

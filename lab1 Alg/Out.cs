@@ -134,13 +134,15 @@ namespace lab1_Alg
             }
 
             for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
+            this.dataX = dataX;
+            Output(res, plot);
+
 
             if (fl)
             {
                 Output(Approximation(res), plot);
             }
 
-            Output(res, plot);
         }
 
 
