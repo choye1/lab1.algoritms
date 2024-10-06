@@ -70,7 +70,7 @@ namespace lab1_Alg
         private void BtStart(object sender, RoutedEventArgs e)
         {
             List<float> dataX = new List<float>();
-            for (int i = 0; i < (int)SlVectorLength.Value; i++) { dataX.Add(i); }
+            for (int i = 0; i < (int)SlVectorLength.Value-2; i++) { dataX.Add(i); }
 
 
             try
@@ -87,7 +87,7 @@ namespace lab1_Alg
 
                 if (CbLoad.IsChecked == true)
                 {
-                    Load(nameAlg);
+                    Load(nameAlg, CbAprox.IsChecked == true);
 
                 }
 
@@ -95,14 +95,14 @@ namespace lab1_Alg
                 {
                     Test test = new Test(algorithm, maxValRandNum, vectorLength, countStart);
                     float[] result = test.StartAlgorithm();
-                    OutAverage(Slise(result), dataX);
+                    OutAverage(Slise(result), dataX,false);
                     //Output(Slise(result), dataX, false);
 
                     //test.WriteFile(result.ToList(),"");  // запись в файл
 
                     if (CbAprox.IsChecked == true)
                     {
-                        Approximation(dataX, result);
+                        OutAverage(Slise(result), dataX, true);
                     }
                 }
 
@@ -112,6 +112,37 @@ namespace lab1_Alg
             {
                 throw;
             }
+        }
+
+        private List<float> OutAverage(List<List<float>> resultList, List<float> dataX, bool fl)
+        {
+            int len = resultList[0].Count - 1;
+            int k = resultList.Count - 1;
+            List<float> result = new List<float>() { };
+
+            for (int j = 0; j < len; j++)
+            {
+                float d = resultList[0][j];
+                for (int i = 1; i <= k; i++)
+                {
+                    d += resultList[i][j];
+                    d /= 2;
+                }
+
+                result.Add(d);
+            }
+
+            if (fl)
+            {
+                Approximation(dataX, result.ToArray());
+            }
+
+            
+            var cal = new ScottPlot.Color(255, 255, 255, 255);
+            var gr = Graph.Plot.Add.Scatter(dataX, result);
+            gr.LineColor = cal;
+            Graph.Refresh();
+            return result;
         }
 
         private List<float> OutAverage(List<List<float>> resultList, List<float> dataX)
@@ -132,11 +163,13 @@ namespace lab1_Alg
                 result.Add(d);
             }
 
+           
 
 
             var cal = new ScottPlot.Color(255, 255, 255, 255);
             var gr = Graph.Plot.Add.Scatter(dataX, result);
             gr.LineColor = cal;
+            gr.MarkerSize = 7;
             Graph.Refresh();
             return result;
         }
@@ -221,7 +254,7 @@ namespace lab1_Alg
             return resultList;
         }
 
-        private void Load(string name)
+        private void Load(string name, bool fl)
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName).FullName).FullName;
             path += "\\" + "launches" + "\\" + name + ".txt";
@@ -236,7 +269,7 @@ namespace lab1_Alg
 
             for (int i = 0; i < res.Count; i++) { dataX.Add(i); }
 
-            OutAverage(Slise(res.ToArray()), dataX);
+            OutAverage(Slise(res.ToArray()), dataX, fl);
             //Output(Slise(res.ToArray()),dataX, false);
 
 
