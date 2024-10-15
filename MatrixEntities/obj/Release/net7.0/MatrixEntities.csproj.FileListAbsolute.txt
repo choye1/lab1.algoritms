@@ -1,0 +1,12 @@
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\bin\Release\net7.0\MatrixEntities.deps.json
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\bin\Release\net7.0\MatrixEntities.dll
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\bin\Release\net7.0\MatrixEntities.pdb
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\MatrixEntities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\MatrixEntities.AssemblyInfoInputs.cache
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\MatrixEntities.AssemblyInfo.cs
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\MatrixEntities.csproj.CoreCompileInputs.cache
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\MatrixEntities.sourcelink.json
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\MatrixEntities.dll
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\refint\MatrixEntities.dll
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\MatrixEntities.pdb
+C:\Users\Daniill\Desktop\lab1.algoritms\MatrixEntities\obj\Release\net7.0\ref\MatrixEntities.dll

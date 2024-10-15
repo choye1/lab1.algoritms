@@ -1,0 +1,14 @@
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\bin\Debug\net7.0\AlgLogic.deps.json
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\bin\Debug\net7.0\AlgLogic.dll
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\bin\Debug\net7.0\AlgLogic.pdb
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.csproj.AssemblyReference.cache
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.AssemblyInfoInputs.cache
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.AssemblyInfo.cs
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.csproj.CoreCompileInputs.cache
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.sourcelink.json
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.dll
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\refint\AlgLogic.dll
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.pdb
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\ref\AlgLogic.dll
+C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic\obj\Debug\net7.0\AlgLogic.csproj.Fody.CopyLocal.cache
