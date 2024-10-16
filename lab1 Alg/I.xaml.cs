@@ -116,16 +116,16 @@ namespace lab1_Alg
                     return new AlgorithmTimSort();
 
                 case ("Quick pow"):
-                    return new AlgorithmQuickPow(p);
+                    return new AlgorithmQuickPow();
 
                 case ("Quick pow 2"):
-                    return new AlgorithmQuickPow2(p);
+                    return new AlgorithmQuickPow2();
 
                 case ("Rec pow"):
-                    return new AlgorithmRecPow(p);
+                    return new AlgorithmRecPow();
 
                 case ("Classic pow"):
-                    return new AlgorithmClassicPow(p);
+                    return new AlgorithmClassicPow();
 
                 case ("Полином"):
                     return new AlgorithmPolynome();

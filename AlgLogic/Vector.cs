@@ -10,6 +10,7 @@
             this.vectorLength = vectorLength;
             this.rangeOfRandomNumbers = rangeOfRandomNumbers;
         }
+
         public int[] GenerateRandomVector()
         {
             int[] vector = new int[vectorLength]; 

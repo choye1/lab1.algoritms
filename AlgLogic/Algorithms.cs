@@ -137,66 +137,54 @@ namespace AlgLogic
 
     public class AlgorithmQuickPow : AlgorithmInterface
     {
-        int n { get; set; }
-        public AlgorithmQuickPow(int n)
+        public AlgorithmQuickPow()
         {
-            this.n = n;
         }
-        public int QuickPow(int n, int x)
+
+        public int QuickPow(int num, int power)
         {
+            long result;
+            int steps = 0;
 
-            int count = 0;
-            int c = x;
-            int k = n;
-            int f;
-            count += 3;
-
-            if (k % 2 == 1)
+            if (power % 2 == 1)
             {
-                f = c;
-                count += 1;
+                result = num;
+                steps+=2;
             }
             else
             {
-                f = 1;
-                count += 1;
+                result = 1;
+                steps++;
             }
+            while (power != 0)
+            {               
+                power /= 2;
+                num *= num;
+                steps += 3;
 
-            while (k != 0)
-            {
-                count += 1;
-                k = k / 2;
-                c = c * c;
-
-                count += 2;
-
-                if (k % 2 == 1)
+                if (power % 2 == 1)
                 {
-                    f = f * c;
-                    count += 2;
+                    result *= num;
+                    steps+=2;
                 }
             }
-            count++;
-            return count;
+            return steps;
         }
+
         public int ExecuteAlgorithm(int[] vector)
         {
-            int c = 0;
-            for (int x = 0; x < vector.Length; x++)
-            {
-                c += QuickPow(x, n);
-            }
-            return c;
+            int x = vector.Length;
+            return QuickPow(2, x);
         }
     }
 
+
     public class AlgorithmQuickPow2 : AlgorithmInterface
     {
-        int n { set; get; }
-        public AlgorithmQuickPow2(int n)
+        public AlgorithmQuickPow2()
         {
-            this.n = n;
         }
+
         public int QuickPow2(int n, int x)
         {
             int count = 0;
@@ -204,49 +192,39 @@ namespace AlgLogic
             int f = 1;
             int k = n;
 
-            count += 3;
+            count += 3; // Инициализация переменных
 
             while (k != 0)
             {
-                count += 1;
-                if (k % 2 == 0)
-                {
-                    c = c * c;
-                    k = k % 2;
-                    count += 3;
-                }
-
-                else
+                count += 1; // Проверка условия цикла
+                if (k % 2 == 1)
                 {
                     f = f * c;
-                    k = k - 1;
-                    count += 3;
+                    count += 2; // Умножение f на c
                 }
-
+                c = c * c;
+                k = k / 2;
+                count += 2; // Умножение c на c и деление k на 2
             }
-            count++;
+            count++; // Завершение цикла
             return count;
-
         }
 
         public int ExecuteAlgorithm(int[] vector)
         {
-            int c = 0;
-            for (int x = 0; x < vector.Length; x++)
-            {
-                c += QuickPow2(x, n);
-            }
-            return c;
+            int x = vector.Length;
+            return QuickPow2(x, 2);
         }
     }
 
-    public class AlgorithmRecPow : AlgorithmInterface
+
+
+public class AlgorithmRecPow : AlgorithmInterface
     {
-        int n { set; get; }
-        public AlgorithmRecPow(int n)
+        public AlgorithmRecPow()
         {
-            this.n = n;
         }
+
         public int RecPow(int n, int x, ref int c)
         {
             c += 1;
@@ -259,7 +237,7 @@ namespace AlgLogic
             else
             {
                 c += 1;
-                f = RecPow(x, n / 2, ref c);
+                f = RecPow(n / 2, x, ref c);
                 if (n % 2 == 1)
                 {
                     f = f * f * x;
@@ -278,23 +256,17 @@ namespace AlgLogic
         public int ExecuteAlgorithm(int[] vector)
         {
             int c = 0;
-            for (int x = 0; x < vector.Length; x++)
-            {
-                RecPow(x, n, ref c);
-            }
-
+            int x = vector.Length;
+            RecPow(x, 2, ref c);
             return c;
         }
-
-
     }
+
 
     public class AlgorithmClassicPow : AlgorithmInterface
     {
-        int n { set; get; }
-        public AlgorithmClassicPow(int n)
+        public AlgorithmClassicPow()
         {
-            this.n = n;
         }
         public int ClassicPow(int n, int x)
         {
@@ -315,13 +287,8 @@ namespace AlgLogic
 
         public int ExecuteAlgorithm(int[] vector)
         {
-            int c = 0;
-            for (int x = 0; x < vector.Length; x++)
-            {
-                c += ClassicPow(x, n);
-            }
-
-            return c;
+            int x = vector.Length;
+            return ClassicPow(x, 2);
         }
 
         public class AlgorithmTimSort : AlgorithmInterface
