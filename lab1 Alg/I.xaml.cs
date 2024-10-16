@@ -159,30 +159,35 @@ namespace lab1_Alg
             switch (nameAlg)
             {
                 case ("Постоянная ф-я"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Сумма элементов"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Произведение эл-тов"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Метод Горнера"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-2000, 100000, -10, 200);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Bubble Sort"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-100, 3000, -50, 600);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 3000;
@@ -190,6 +195,7 @@ namespace lab1_Alg
                     break;
 
                 case ("Quick Sort"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 1000;
@@ -197,52 +203,56 @@ namespace lab1_Alg
                     break;
 
                 case ("Tim Sort"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-400, 14800, -10, 300);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 1000;
                     break;
 
                 case ("Quick pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
                     Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Quick pow 2"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
                     Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Rec pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
+                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
                     Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Classic pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 22000, -1, 30);
                     Graph.Plot.YLabel("Шаги");
+                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Полином"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-500, 20000, -20, 300);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Сортировка слиянием"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-400, 16800, -8, 260);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 1000;
                     break;
 
                 case ("Задача о разбиении множества"):
+                    Graph.Plot.YLabel("Время мс*100");
                     Graph.Plot.Axes.SetLimits(-10, 550, -1000, 30000);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 1500;
