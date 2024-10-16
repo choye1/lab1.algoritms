@@ -142,8 +142,9 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public int QuickPow(int x, int n)
+        public int QuickPow(int n, int x)
         {
+
             int count = 0;
             int c = x;
             int k = n;
@@ -196,7 +197,7 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public int QuickPow2(int x, int n)
+        public int QuickPow2(int n, int x)
         {
             int count = 0;
             int c = x;
@@ -246,7 +247,7 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public int RecPow(int x, int n, ref int c)
+        public int RecPow(int n, int x, ref int c)
         {
             c += 1;
             int f;
@@ -295,7 +296,7 @@ namespace AlgLogic
         {
             this.n = n;
         }
-        public int ClassicPow(int x, int n)
+        public int ClassicPow(int n, int x)
         {
             int c = 0;
             int f = 1;

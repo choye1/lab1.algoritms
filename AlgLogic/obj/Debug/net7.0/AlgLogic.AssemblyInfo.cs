@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlgLogic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e92d6bc8411e01d4d7ecd6a8bdafc4bcf263a31a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00e70ea347e8bbb4557f11322c612fae4c21164b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlgLogic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlgLogic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
