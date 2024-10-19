@@ -210,21 +210,21 @@ namespace lab1_Alg
                     break;
 
                 case ("Quick pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
+                    Graph.Plot.Axes.SetLimits(-500, 16000, -10, 75);
                     Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Quick pow 2"):
-                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
+                    Graph.Plot.Axes.SetLimits(-500, 16000, -10, 80);
                     Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
 
                 case ("Rec pow"):
-                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
+                    Graph.Plot.Axes.SetLimits(-500, 17000, 0, 90);
                     Graph.Plot.YLabel("Шаги");
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
