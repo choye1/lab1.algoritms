@@ -1,3 +1,0 @@
-C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic.dll
-C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic.pdb
-C:\Users\Daniill\Desktop\lab1.algoritms\AlgLogic.deps.json
