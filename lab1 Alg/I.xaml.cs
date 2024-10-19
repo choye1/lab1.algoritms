@@ -232,7 +232,7 @@ namespace lab1_Alg
 
                 case ("Classic pow"):
                     Graph.Plot.YLabel("Шаги");
-                    Graph.Plot.Axes.SetLimits(-1000, 17000, -10000, 160000);
+                    Graph.Plot.Axes.SetLimits(-1000, 15000, -1000, 61000);
                     Graph.Refresh();
                     SlVectorLength.Maximum = 15000;
                     break;
