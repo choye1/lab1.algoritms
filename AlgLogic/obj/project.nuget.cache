@@ -1,13 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "lxgnC4cd7Q1mlNHpmo9OsGHlS9TSgcTrSkv5FL6Kk+67wUhaTdqD+wg/hcS5dhKux87XOSnZ7phn0T/ygQwnQA==",
+  "dgSpecHash": "U7QROhgbidK7A1c82w6hEyCOOaT20jGUAksGdfUIexyvKYR3GR74XrtGSCp4L441fXMIYbJIIT356Y+xrKXNdg==",
   "success": true,
   "projectFilePath": "E:\\git\\lab1.algoritms\\AlgLogic\\AlgLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\costura.fody\\5.7.0\\costura.fody.5.7.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\fody\\6.5.5\\fody.6.5.5.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23211.1\\microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
